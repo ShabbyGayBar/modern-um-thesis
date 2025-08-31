@@ -6,6 +6,7 @@
 #import "pages/cover-phd.typ": cover-phd
 #import "pages/declare-phd.typ": declare-phd
 #import "pages/table-of-contents.typ": table-of-contents, list-of-images, list-of-tables, list-of-algorithms
+#import "utils/symbols.typ": *
 
 /// Typst thesis template for University of Macau
 ///

@@ -126,27 +126,27 @@ Numbers and units support are provided by `unify`:
 
 Typst also has special syntax and library functions to typeset mathematical formulas.
 
-- $1 plus.minus 2 upright(i)$
+- $1 plus.minus 2 ii$
 - $1.654 times 2.34 times 3.430$
 
 === Mathematical Symbols And Formulas
 
 According to ISO 80000-2:2019, an explicitly defined function not depending on the context is printed in upright type, e.g. $sin$, $exp$, $ln$, $Gamma$.
 
-While mathematical constants, the values of which never change, are printed in upright type, e.g. $upright(e) = num("2.718281828") dots$; $upright(pi) = num("3.141592") dots$; $upright(i)^2 = -1$.
+While mathematical constants, the values of which never change, are printed in upright type, e.g. $ee = num("2.718281828") dots$; $uppi = num("3.141592") dots$; $ii^2 = -1$.
 
-Well-defined operators are also printed in upright type, e.g. $div$, $upright(delta)$ in $upright(delta) x$ and each $dif$ in $(dif f)/(dif x)$. 
+Well-defined operators are also printed in upright type, e.g. $div$, $partial$ in $partial x$ and each $dif$ in $(dif f)/(dif x)$. 
 
 Formulas should be centered on a new line. Each formula should be numbered sequentially by chapter, with the number aligned to the right.
 
-$ upright(e)^(upright(i)upright(pi)) + 1 = 0 $
+$ ee^(ii uppi) + 1 = 0 $
 
 $ (dif^2 u)/(dif t^2) = integral f(x) dif x $
 
 The end of the formula needs punctuation, whether a comma or a period, depending on the following sentence.
 
 $
-  (2h)/upright(pi) integral_0^infinity sin(omega delta)/omega cos(omega x) dif omega
+  (2h)/uppi integral_0^infinity sin(omega delta)/omega cos(omega x) dif omega
   = cases(h", "&abs(x) < delta ",", h/2", "&x=plus.minus delta",", 0", "&abs(x) > delta ".")
 $
 
@@ -161,7 +161,7 @@ $
 If breaking the line at the equal sign is difficult to achieve, you can also break the line at the $+$, $-$, $times$, $div$ operators. When breaking the line, the operator should only be written in front of the broken line and not repeated.
 
 $
-  1/2 italic(Delta)(f_(i j)f^(i j)) = 2(sum_(i<j) chi_(i j) (sigma_i - sigma_j)^2 + f^(i j) gradient_j gradient_i (italic(Delta) f)\
+  1/2 Delta(f_(i j)f^(i j)) = 2(sum_(i<j) chi_(i j) (sigma_i - sigma_j)^2 + f^(i j) gradient_j gradient_i (Delta f)\
   + gradient_k f_(i j) gradient^k f^(i j) + f^(i j) f^k [2 gradient_i R_(j k) - gradient_k R_(i j)]).
 $
 
@@ -172,7 +172,7 @@ $
 Here is an example for a theorem:
 
 #theorem(title: "Residue theorem")[
-   Let $U$ be a simply connected open subset of the complex plane containing a finite list of points $a_1, dots, a_n, U_0 = U without {a_1, dots, a_n}$ and a function $f$ holomorphic on $U_0$. Letting $gamma$ be a closed rectifiable curve in $U_0$, and denoting the residue of $f$ at each point $a_k$ by Res ⁡ ( f , a k ) {\displaystyle \operatorname $"Res"(f, a_k)}$ and the winding number of $gamma$ around $a_k$ by $upright(*I*)(gamma, a_k)$, the line integral of $f$ around $gamma$ is equal to $2 upright(pi) upright(i)$ times the sum of residues, each counted as many times as $gamma$ winds around the respective point:
+   Let $U$ be a simply connected open subset of the complex plane containing a finite list of points $a_1, dots, a_n, U_0 = U without {a_1, dots, a_n}$ and a function $f$ holomorphic on $U_0$. Letting $gamma$ be a closed rectifiable curve in $U_0$, and denoting the residue of $f$ at each point $a_k$ by Res ⁡ ( f , a k ) {\displaystyle \operatorname $"Res"(f, a_k)}$ and the winding number of $gamma$ around $a_k$ by $upright(*I*)(gamma, a_k)$, the line integral of $f$ around $gamma$ is equal to $2 uppi ii$ times the sum of residues, each counted as many times as $gamma$ winds around the respective point:
 
    _To be continued_
 ]
