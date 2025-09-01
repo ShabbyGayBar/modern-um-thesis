@@ -36,7 +36,10 @@
   print: true,
   info: (:),
 ) = {
-  if ("en", "zh", "pt").contains(lang) == false {
+  if not ("doctor", "master", "bachelor").contains(doctype) {
+    panic("Invalid document type. Please select one of the following document types: doctor, master, bachelor.")
+  }
+  if not ("en", "zh", "pt").contains(lang)  {
     panic("Invalid language. Please select one of the following languages: en, zh, pt.")
   }
 
