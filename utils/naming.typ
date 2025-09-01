@@ -1,3 +1,5 @@
+#import "convert.typ": *
+
 /// Converts a string to camel case format.
 ///
 /// -> str
@@ -8,7 +10,7 @@
 /// Converts a name string/content to format SURNAME, Given Name
 /// -> str
 #let format-name(body) = {
-  let name_parts = body.split(" ")
+  let name_parts = to-str(body).split(" ")
   let surname = name_parts.first()
   let given_name = name_parts.last()
   upper(surname) + ", " + camel-case(given_name)

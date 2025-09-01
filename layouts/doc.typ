@@ -2,6 +2,7 @@
 #import "@preview/i-figured:0.2.4"
 #import "@preview/itemize:0.1.2" as el
 #import "@preview/unify:0.7.1": *
+#import "../utils/convert.typ": *
 
 /// Document metadata & global settings
 ///
@@ -86,11 +87,11 @@
   set document(
     title: info.title-en,
     author: if lang == "zh" {
-      info.author-zh
+      to-str(info.author-zh)
     } else if lang == "pt" {
-      info.author-pt
+      to-str(info.author-pt)
     } else {
-      info.author-en
+      to-str(info.author-en)
     },
   )
 
