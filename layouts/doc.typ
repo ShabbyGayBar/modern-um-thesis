@@ -1,7 +1,6 @@
 #import "@preview/cuti:0.3.0": show-cn-fakebold
 #import "@preview/i-figured:0.2.4"
 #import "@preview/itemize:0.1.2" as el
-#import "@preview/unify:0.7.1": *
 #import "../utils/convert.typ": *
 
 /// Document metadata & global settings

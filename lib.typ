@@ -1,8 +1,10 @@
 #import "@preview/tidy:0.4.3"
-#import "layouts/appendix.typ": *
-#import "layouts/doc.typ": *
-#import "layouts/frontmatter.typ": *
-#import "layouts/mainmatter.typ": *
+#import "@preview/unify:0.7.1": *
+#import "@preview/theorion:0.4.0": *
+#import "layouts/appendix.typ": appendix
+#import "layouts/doc.typ": doc
+#import "layouts/frontmatter.typ": frontmatter
+#import "layouts/mainmatter.typ": mainmatter
 #import "pages/cover-phd.typ": cover-phd
 #import "pages/declare-phd.typ": declare-phd
 #import "pages/table-of-contents.typ": table-of-contents, list-of-images, list-of-tables, list-of-algorithms
