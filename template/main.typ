@@ -83,23 +83,23 @@
 #show: mainmatter
 // #show: word-count-cjk // 正文字数统计
 
-= Introduction
+= Introduction <introduction>
 
 This thesis presents the research on...
 
-== Second level heading
+== Second level heading <2nd-level-heading>
 
-=== Third level heading
+=== Third level heading <3rd-level-heading>
 
-==== Fourth level heading
+==== Fourth level heading <4th-level-heading>
 
 #lorem(100)
 
-== Footnotes
+== Footnotes <footnotes>
 
 #lorem(10)#footnote()[#lorem(20)]
 
-== Font
+== Font <font>
 
 The University of Macau (UM) is a comprehensive research-oriented public university of international standing. Since her establishment in 1981, UM has been dedicated to providing a multifaceted education through our unique educational model and residential college system and in accordance with the university motto: Humanity, Integrity, Propriety, Wisdom and Sincerity.
 
@@ -107,11 +107,11 @@ The University of Macau (UM) is a comprehensive research-oriented public univers
 
 _On behalf of UM, I would like to invite you to browse our website to get a better sense of our academic programmes and latest development. Also, I would like to welcome you to visit our gorgeous campus where you can see our strengths and advantages, interact with us, and experience the uniqueness of the UM community._
 
-= Math And Citations
+= Math And Citations <math-and-citations>
 
-== Math
+== Math <math>
 
-=== Numbers and Units
+=== Numbers and Units <numbers-and-units>
 
 Numbers and units support are provided by `unify`:
 
@@ -129,7 +129,7 @@ Typst also has special syntax and library functions to typeset mathematical form
 - $1 plus.minus 2 ii$
 - $1.654 times 2.34 times 3.430$
 
-=== Mathematical Symbols And Formulas
+=== Mathematical Symbols And Formulas <mathematical-symbols-and-formulas>
 
 According to ISO 80000-2:2019, an explicitly defined function not depending on the context is printed in upright type, e.g. $sin$, $exp$, $ln$, $Gamma$.
 
@@ -165,7 +165,7 @@ $
   + gradient_k f_(i j) gradient^k f^(i j) + f^(i j) f^k [2 gradient_i R_(j k) - gradient_k R_(i j)]).
 $
 
-=== Theorems
+=== Theorems <theorems>
 
 `Theorion` is used in this template to set up environments for theorems, lemmas, and propositions.
 
@@ -177,11 +177,11 @@ Here is an example for a theorem:
    _To be continued_
 ]
 
-== Notation of references
+== Notation Of References <notation-of-references>
 
-= Floats
+= Floats <floats>
 
-= Conclusion
+= Conclusion <conclusion>
 
 The conclusion drawn from this research is...
 
@@ -189,6 +189,6 @@ The conclusion drawn from this research is...
 
 #show: appendix
 
-= Maxwell Equations
+= Maxwell Equations <maxwell-equations>
 
-= Flow Charts
+= Flow Charts <flow-charts>

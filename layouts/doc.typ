@@ -67,6 +67,8 @@
   show heading.where(level: 1): set align(center)
   // Start a new page at every first level heading
   show heading.where(level: 1): body => pagebreak(weak: true) + body
+  // Remove chapter & appendix supplement
+  show heading.where(level: 1): set heading(supplement: none)
   // Double-line spacing for headings
   show heading: set block(above: 2em, below: 2em)
 
