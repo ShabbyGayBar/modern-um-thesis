@@ -23,6 +23,10 @@
   date: datetime.today(),
   /// Language of the thesis
   /// 
+  /// Master's theses must be written in English.
+  ///
+  /// If you choose "master" doctype, DO NOT select the other 2 languages.
+  ///
   /// -> "en" | "zh" | "pt"
   lang: "en",
   /// Enable double-sided printing
