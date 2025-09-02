@@ -4,6 +4,7 @@
 #import "layouts/doc.typ": doc
 #import "layouts/frontmatter.typ": frontmatter
 #import "layouts/mainmatter.typ": mainmatter
+#import "pages/cover-ms.typ": cover-ms
 #import "pages/cover-phd.typ": cover-phd
 #import "pages/declare-phd.typ": declare-phd
 #import "pages/table-of-contents.typ": table-of-contents, list-of-images, list-of-tables, list-of-algorithms
@@ -127,12 +128,12 @@
           info: info + args.named().at("info", default: (:)),
           date: date,
         )
-      } else {
-        cover-page(
+      } else if doctype == "master" {
+        cover-ms(
           ..args,
-          doctype: doctype,
-          info: info + args.named().at("info", default: (:)),
           date: date,
+          double-sided: double-sided,
+          info: info + args.named().at("info", default: (:)),
         )
       }
     },
