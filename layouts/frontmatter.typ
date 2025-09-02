@@ -6,7 +6,10 @@
   // Required format settings
   set page(numbering: "i")
   counter(page).update(1)
-  set heading(numbering: none) // Omit numbering for first level headings
+
+  // Omit numbering for first level headings
+  set heading(numbering: none)
+
   // doctype specific settings
   set outline(
     depth: 3,

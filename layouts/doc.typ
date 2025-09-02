@@ -1,16 +1,17 @@
 #import "@preview/cuti:0.3.0": show-cn-fakebold
-#import "@preview/i-figured:0.2.4"
+#import "@preview/theorion:0.4.0": *
+#import "@preview/numbly:0.1.0": numbly
 #import "@preview/itemize:0.1.2" as el
 #import "../utils/convert.typ": *
 
 /// Document metadata & global settings
 ///
-/// - info (): 
-/// - doctype (): 
-/// - double-sided (): 
-/// - print (): 
-/// - body (): 
-/// -> 
+/// - info ():
+/// - doctype ():
+/// - double-sided ():
+/// - print ():
+/// - body ():
+/// ->
 #let doc(
   // documentclass 传入参数
   info: (:),
@@ -72,17 +73,30 @@
   show heading: set block(above: 2em, below: 2em)
 
   // Custom format settings
-  show figure: set align(center)
-  show table: set align(center)
-  show figure.caption: set par(leading: 1em, justify: false)
 
-  set list(indent: 1em, body-indent: 0.65em)
+  // Figure/image settings
+  show figure.where(kind: image): set figure(supplement: [Fig.])
+  show figure.caption: set text(weight: "bold")
+  show figure.caption: set par(leading: 1em, justify: false)
+  // Place table and algorithm captions above
+  show figure.where(kind: table): set figure.caption(position: top)
+  show figure.where(kind: "algorithm"): set figure.caption(position: top)
+  // Allow figures to break across pages
+  show figure: set block(breakable: true)
+  // Make images sticky to avoid splitting
+  show figure.where(kind: image): set block(sticky: true)
+  // Table settings
+  show table: set par(leading: 1em, spacing: 1em)
+  set table(stroke: none)
+
+  // List settings
   show ref: el.ref-enum
   show: el.default-enum-list
-
   show footnote.entry: set par(leading: 1em, spacing: 1em)
-  set list(spacing: 1em)
-  set enum(spacing: 1em)
+  show list: set par(leading: 1em)
+  show enum: set par(leading: 1em)
+
+  show: show-theorion
 
   // Document metadata
   set document(
