@@ -1,4 +1,4 @@
-#import "../utils/naming.typ": format-name
+#import "../utils/convert.typ": format-name
 
 /// Generate cover page for PhD thesis
 ///

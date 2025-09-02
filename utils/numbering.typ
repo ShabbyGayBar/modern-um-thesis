@@ -1,7 +1,14 @@
 /// Generate the numbering pattern of first-level headings for package numbly
+/// 
 /// -> str
 #let pattern-heading-first-level(
+  /// Language of the thesis
+  ///
+  /// -> "en" | "zh" | "pt"
   lang: "en",
+  /// Supplementary of the heading
+  /// 
+  /// -> content
   supplement: [Chapter],
 ) = {
   if supplement == [Chapter] {

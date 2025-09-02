@@ -1,5 +1,4 @@
 #import "../utils/line.typ": *
-#import "../utils/naming.typ": format-name
 
 /// Generate cover page for Master's thesis
 ///
