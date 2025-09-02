@@ -18,6 +18,7 @@
   // Omit numbering for first level headings
   set heading(numbering: none, supplement: none)
   // Outline style settings
+  set outline(title: [Table of Contents])
   set outline(
     depth: 3,
     indent: n => calc.max(0, n - 1) * 2.5em,

@@ -72,7 +72,7 @@
   // supervisor-sign: place(dx: 4cm, dy: -1.2cm, image("figures/supervisor-sign.png", height: 2em)),
 )
 
-#outline(title: [Table of Contents])
+#outline()
 
 // #image-outline() // 插图目录，按需设置
 
