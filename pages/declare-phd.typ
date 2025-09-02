@@ -1,6 +1,16 @@
+/// Generate declaration page for PhD thesis
+///
+/// -> content
 #let declare-phd(
+  /// -> datetime
   date: none,
+  /// Language of the thesis
+  ///
+  /// -> "en" | "zh" | "pt"
   lang: "en",
+  /// Enable double-sided printing
+  ///
+  /// -> bool
   double-sided: false,
 ) = {
   pagebreak(

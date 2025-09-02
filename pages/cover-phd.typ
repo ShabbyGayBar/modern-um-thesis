@@ -1,20 +1,36 @@
 #import "../utils/naming.typ": format-name
 
+/// Generate cover page for PhD thesis
+///
+/// -> content
 #let cover-phd(
-  lang: "en",
+  /// Date of submission
+  ///
+  /// -> datetime
   date: datetime.today(),
+  /// Language of the thesis
+  ///
+  /// -> "en" | "zh" | "pt"
+  lang: "en",
+  /// Enable double-sided printing
+  ///
+  /// -> bool
   double-sided: true,
+  /// Thesis information, including:
+  ///
+  /// -> dictionary
   info: (:),
 ) = {
-  // Required format settings
-  set page(
-    margin: (top: 1in, bottom: 1in, left: 1in, right: 1in), // Normal margins for cover, title page and author's right page
-  )
+  // Normal margins for cover, title page and author's right page
+  set page(margin: (top: 1in, bottom: 1in, left: 1in, right: 1in))
   set align(center)
+  set pagebreak(weak: true, to: if double-sided { "odd" })
 
-  // Cover page
+  ////////////////
+  // Cover page //
+  ////////////////
+
   grid(
-    rows: 7,
     columns: 1,
     gutter: (1fr, 6em, 6em, 4em, 4em, 4em),
     align: center + top,
@@ -67,14 +83,13 @@
     },
   )
 
-  pagebreak(
-    weak: true,
-    to: if double-sided { "odd" },
-  )
+  pagebreak()
 
-  // Title page
+  ////////////////
+  // Title page //
+  ////////////////
+
   grid(
-    rows: 9,
     columns: 1,
     gutter: 1fr,
     align: center + top,
@@ -170,10 +185,7 @@
     },
   )
 
-  pagebreak(
-    weak: true,
-    to: if double-sided { "odd" },
-  )
+  pagebreak()
 
   // Author’s right page.
   v(10cm - 1in) // 10 cm below top of page, accounting for page margin
@@ -183,8 +195,5 @@
     [#datetime.today().year() by\ #format-name(info.author-en)]
   }
 
-  pagebreak(
-    weak: true,
-    to: if double-sided { "odd" },
-  )
+  pagebreak()
 }

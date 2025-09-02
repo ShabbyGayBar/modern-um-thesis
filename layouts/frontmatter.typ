@@ -1,16 +1,23 @@
+/// Set up front matter environment
+///
+/// -> content
 #let frontmatter(
+  /// Type of thesis
+  ///
+  /// -> "doctor" | "master" | "bachelor"
   doctype: "doctor",
+  /// Language of the thesis
+  ///
+  /// -> "en" | "zh" | "pt"
   lang: "en",
+  /// -> content
   body,
 ) = {
-  // Required format settings
   set page(numbering: "i")
   counter(page).update(1)
-
   // Omit numbering for first level headings
   set heading(numbering: none, supplement: none)
-
-  // doctype specific settings
+  // Outline style settings
   set outline(
     depth: 3,
     indent: n => calc.max(0, n - 1) * 2.5em,
@@ -26,7 +33,10 @@
     it
   }
 
-  // Custom format settings
+  ////////////////////////////
+  // Custom format settings //
+  ////////////////////////////
+
   show outline.entry.where(level: 1): set text(
     weight: if doctype == "doctor" { "bold" } else { "regular" },
   )

@@ -7,49 +7,56 @@
 
 /// Document metadata & global settings
 ///
-/// - info ():
-/// - doctype ():
-/// - double-sided ():
-/// - print ():
-/// - body ():
-/// ->
+/// -> content
 #let doc(
-  // documentclass 传入参数
-  info: (:),
+  /// Type of thesis
+  ///
+  /// -> "doctor" | "master" | "bachelor"
   doctype: "doctor",
+  /// Language of the thesis
+  ///
+  /// -> "en" | "zh" | "pt"
   lang: "en",
+  /// Enable double-sided printing
+  ///
+  /// -> bool
   double-sided: true,
+  /// Add margins to binding side for printing
+  ///
+  /// -> bool
   print: true,
+  /// Thesis information
+  ///
+  /// -> dictionary
+  info: (:),
+  /// -> content
   body,
 ) = {
-  set page(
-    margin: if doctype == "doctor" {
-      if not print {
-        (top: 2.5cm, bottom: 2.5cm, left: 2.5cm, right: 2.5cm)
-      } else if double-sided {
-        (top: 2.5cm, bottom: 2.5cm, inside: 4cm, outside: 2.5cm)
-      } else {
-        (top: 2.5cm, bottom: 2.5cm, left: 4cm, right: 2.5cm)
-      }
-    } else if doctype == "master" {
-      if not print {
-        (top: 1in, bottom: 1in, left: 1in, right: 1in)
-      } else if double-sided {
-        (top: 1in, bottom: 1in, inside: 1.5in, outside: 1in)
-      } else {
-        (top: 1in, bottom: 1in, left: 1.5in, right: 1in)
-      }
-    } else if doctype == "bachelor" {
-      if not print {
-        (top: 2.5cm, bottom: 2.5cm, left: 2.5cm, right: 2.5cm)
-      } else if double-sided {
-        (top: 2.5cm, bottom: 2.5cm, inside: 4cm, outside: 2.5cm)
-      } else {
-        (top: 2.5cm, bottom: 2.5cm, left: 4cm, right: 2.5cm)
-      }
-    },
-  )
-
+  set page(margin: if doctype == "doctor" {
+    if not print {
+      (top: 2.5cm, bottom: 2.5cm, left: 2.5cm, right: 2.5cm)
+    } else if double-sided {
+      (top: 2.5cm, bottom: 2.5cm, inside: 4cm, outside: 2.5cm)
+    } else {
+      (top: 2.5cm, bottom: 2.5cm, left: 4cm, right: 2.5cm)
+    }
+  } else if doctype == "master" {
+    if not print {
+      (top: 1in, bottom: 1in, left: 1in, right: 1in)
+    } else if double-sided {
+      (top: 1in, bottom: 1in, inside: 1.5in, outside: 1in)
+    } else {
+      (top: 1in, bottom: 1in, left: 1.5in, right: 1in)
+    }
+  } else if doctype == "bachelor" {
+    if not print {
+      (top: 2.5cm, bottom: 2.5cm, left: 2.5cm, right: 2.5cm)
+    } else if double-sided {
+      (top: 2.5cm, bottom: 2.5cm, inside: 4cm, outside: 2.5cm)
+    } else {
+      (top: 2.5cm, bottom: 2.5cm, left: 4cm, right: 2.5cm)
+    }
+  })
   set text(
     font: ("Times New Roman", "Pmingliu"),
     size: 12pt,
@@ -62,8 +69,6 @@
     // Enable first-line indent for Chinese
     first-line-indent: if lang == "zh" { (amount: 2em, all: true) } else { (amount: 0pt, all: false) },
   )
-  show: show-cn-fakebold
-
   // Align first level headings to the center
   show heading.where(level: 1): set align(center)
   // Start a new page at every first level heading
@@ -80,11 +85,17 @@
   // Change bibliography title to "References"
   set bibliography(title: "References") if doctype == "doctor"
 
-  // Custom format settings
+  show: show-cn-fakebold
+
+  ////////////////////////////
+  // Custom format settings //
+  ////////////////////////////
 
   // Figure/image settings
+
   show figure.where(kind: image): set figure(supplement: [Fig.])
   show figure.caption: set text(weight: "bold")
+  // Decrease spacing in figure captions
   show figure.caption: set par(leading: 1em, justify: false)
   // Place table and algorithm captions above
   show figure.where(kind: table): set figure.caption(position: top)
@@ -93,13 +104,19 @@
   show figure: set block(breakable: true)
   // Make images sticky to avoid splitting
   show figure.where(kind: image): set block(sticky: true)
+
   // Table settings
-  show table: set par(leading: 1em, spacing: 1em)
+
   set table(stroke: none)
+  // Decrease spacing in table contents
+  show table: set par(leading: 1em, spacing: 1em)
 
   // List settings
+
+  // Fix bug when line is too tall
   show ref: el.ref-enum
   show: el.default-enum-list
+  // Decrease spacing in table contents
   show footnote.entry: set par(leading: 1em, spacing: 1em)
   show list: set par(leading: 1em)
   show enum: set par(leading: 1em)
@@ -108,6 +125,7 @@
 
   show: show-theorion
 
+  // Override ref formatting for chapter/appendix headings
   show ref: it => {
     let el = it.element
     if el == none {
