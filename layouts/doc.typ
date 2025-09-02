@@ -96,6 +96,8 @@
   show list: set par(leading: 1em)
   show enum: set par(leading: 1em)
 
+  set math.equation(supplement: none)
+
   show: show-theorion
 
   // Document metadata
