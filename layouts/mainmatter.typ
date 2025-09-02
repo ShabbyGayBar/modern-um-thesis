@@ -1,5 +1,6 @@
 #import "@preview/i-figured:0.2.4"
 #import "@preview/numbly:0.1.0": numbly
+#import "../utils/numbering.typ": *
 
 #let mainmatter(
   // Document type: "bachelor", "master", etc. (affects equation numbering style)
@@ -14,24 +15,12 @@
 
   // Set chapter prefix
   set heading(
-    numbering: if doctype == "master" {
-      if lang == "zh" {
-        numbly("第{1:一}章")
-      } else if lang == "pt" {
-        numbly("Capítulo {1}")
-      } else {
-        numbly("Chapter {1}")
-      }
-    } else {
-      if lang == "zh" {
-        numbly("第{1:一}章：")
-      } else if lang == "pt" {
-        numbly("CAPÍTULO {1}:")
-      } else {
-        numbly("CHAPTER {1}:")
-      }
-    }
+    numbering: numbly(
+      pattern-heading-first-level(lang: lang, supplement: [Chapter]) + if doctype == "master" { ":" },
+    ),
   )
+  show heading.where(level: 1): set heading(supplement: [Chapter])
+  counter(heading).update(0)
 
   show heading: i-figured.reset-counters
   show figure: i-figured.show-figure

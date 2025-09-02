@@ -8,7 +8,7 @@
   counter(page).update(1)
 
   // Omit numbering for first level headings
-  set heading(numbering: none)
+  set heading(numbering: none, supplement: none)
 
   // doctype specific settings
   set outline(
@@ -19,6 +19,12 @@
     depth: 4,
     indent: 3em,
   ) if doctype == "master"
+  // Uppercase first level headings for master thesis
+  show outline.entry.where(level: 1): it => if doctype == "master" {
+    upper(it)
+  } else {
+    it
+  }
 
   // Custom format settings
   show outline.entry.where(level: 1): set text(

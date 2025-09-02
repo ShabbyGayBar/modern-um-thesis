@@ -3,6 +3,7 @@
 #import "@preview/numbly:0.1.0": numbly
 #import "@preview/itemize:0.1.2" as el
 #import "../utils/convert.typ": *
+#import "../utils/numbering.typ": *
 
 /// Document metadata & global settings
 ///
@@ -66,9 +67,14 @@
   // Align first level headings to the center
   show heading.where(level: 1): set align(center)
   // Start a new page at every first level heading
-  show heading.where(level: 1): body => pagebreak(weak: true) + body
-  // Remove chapter & appendix supplement
-  show heading.where(level: 1): set heading(supplement: none)
+  show heading.where(level: 1): body => {
+    pagebreak(weak: true)
+    if doctype == "doctor" {
+      upper(body)
+    } else {
+      body
+    }
+  }
   // Double-line spacing for headings
   show heading: set block(above: 2em, below: 2em)
 
@@ -99,6 +105,20 @@
   set math.equation(supplement: none)
 
   show: show-theorion
+
+  show ref: it => {
+    let el = it.element
+    if el == none {
+      it
+    } else if el.func() == heading and el.level == 1 {
+      link(el.location(), numbering(
+        numbly(pattern-heading-first-level(lang: lang, supplement: el.supplement)),
+        ..counter(heading).at(el.location()),
+      ))
+    } else {
+      it
+    }
+  }
 
   // Document metadata
   set document(
