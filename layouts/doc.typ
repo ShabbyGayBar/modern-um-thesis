@@ -69,7 +69,7 @@
   // Start a new page at every first level heading
   show heading.where(level: 1): body => {
     pagebreak(weak: true)
-    if doctype == "doctor" {
+    if doctype == "master" {
       upper(body)
     } else {
       body
