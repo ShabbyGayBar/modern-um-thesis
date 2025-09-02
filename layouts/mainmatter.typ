@@ -1,6 +1,7 @@
 #import "@preview/i-figured:0.2.4"
 #import "@preview/numbly:0.1.0": numbly
 #import "../utils/numbering.typ": *
+#import "../utils/page.typ": *
 
 /// Set up main matter environment
 ///
@@ -20,6 +21,13 @@
   set page(numbering: "1")
   counter(page).update(1)
   counter(heading).update(0)
+  // Page number at center top, omitted at chapter/bib/appendix pages
+  set page(
+    header: context {
+      if is-chapter-page() { none } else { h(1fr) + counter(page).display() + h(1fr) }
+    },
+    numbering: none,
+  ) if doctype == "master"
   // Set chapter prefix
   set heading(numbering: numbly(
     pattern-heading-first-level(lang: lang, supplement: [Chapter]) + if doctype == "master" { ":" },
