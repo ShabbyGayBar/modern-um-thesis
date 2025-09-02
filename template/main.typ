@@ -185,7 +185,7 @@ Here is an example for a theorem:
 
 The conclusion drawn from this research is...
 
-#bibliography("./ref.bib", full: true, style: "apa", title: "References")
+#bibliography("./ref.bib", full: true, style: "apa")
 
 #show: appendix
 

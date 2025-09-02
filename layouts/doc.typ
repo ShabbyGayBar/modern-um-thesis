@@ -77,6 +77,8 @@
   }
   // Double-line spacing for headings
   show heading: set block(above: 2em, below: 2em)
+  // Change bibliography title to "References"
+  set bibliography(title: "References") if doctype == "doctor"
 
   // Custom format settings
 
