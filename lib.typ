@@ -7,7 +7,7 @@
 #import "pages/cover-ms.typ": cover-ms
 #import "pages/cover-phd.typ": cover-phd
 #import "pages/declare-phd.typ": declare-phd
-#import "pages/table-of-contents.typ": table-of-contents, list-of-images, list-of-tables, list-of-algorithms
+#import "pages/outline.typ": outline-image, outline-table, outline-table-image
 #import "utils/symbols.typ": *
 
 /// All functions and variables to be used in the Typst thesis template for University of Macau.
@@ -144,29 +144,22 @@
         double-sided: double-sided,
       )
     },
-    table-of-contents: (..args) => {
-      table-of-contents(
+    outline-image: (..args) => {
+      outline-image(
         ..args,
+        lang: lang,
       )
     },
-    list-of-images: (..args) => {
-      list-of-images(
+    outline-table: (..args) => {
+      outline-table(
         ..args,
+        lang: lang,
       )
     },
-    list-of-tables: (..args) => {
-      list-of-tables(
+    outline-table-image: (..args) => {
+      outline-table-image(
         ..args,
-      )
-    },
-    list-of-algorithms: (..args) => {
-      list-of-algorithms(
-        ..args,
-      )
-    },
-    list-of-abbreviations: (..args) => {
-      list-of-abbreviations(
-        ..args,
+        lang: lang,
       )
     },
   )
