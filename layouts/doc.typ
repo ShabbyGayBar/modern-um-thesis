@@ -1,5 +1,4 @@
 #import "@preview/cuti:0.3.0": show-cn-fakebold
-#import "@preview/theorion:0.4.0": *
 #import "@preview/numbly:0.1.0": numbly
 #import "@preview/itemize:0.1.2" as el
 #import "../utils/convert.typ": *
@@ -121,9 +120,7 @@
   show list: set par(leading: 1em)
   show enum: set par(leading: 1em)
 
-  set math.equation(supplement: none)
-
-  show: show-theorion
+  set math.equation(number-align: end + bottom, supplement: none)
 
   // Override ref formatting for chapter/appendix headings
   show ref: it => {

@@ -1,5 +1,6 @@
 #import "@preview/i-figured:0.2.4"
 #import "@preview/numbly:0.1.0": numbly
+#import "@preview/theorion:0.4.0": *
 #import "../utils/numbering.typ": *
 #import "../utils/page.typ": *
 
@@ -39,6 +40,12 @@
   show heading: i-figured.reset-counters
   show figure: i-figured.show-figure
   show math.equation: i-figured.show-equation
+
+  // Theorem environment setup
+  // placed behind i-figured to avoid captions appearing
+  show: show-theorion
+  set-inherited-levels(1)
+  set-theorion-numbering("1.1")
 
   // Add metadata for total words and characters (for thesis statistics)
   context [

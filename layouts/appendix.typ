@@ -1,5 +1,6 @@
 #import "@preview/i-figured:0.2.4"
 #import "@preview/numbly:0.1.0": numbly
+#import "@preview/theorion:0.4.0": *
 #import "../utils/numbering.typ": *
 
 /// Set up appendix environment.
@@ -40,6 +41,12 @@
   show heading: i-figured.reset-counters
   show figure: i-figured.show-figure.with(numbering: "A.1")
   show math.equation: i-figured.show-equation.with(numbering: "(A.1)")
+
+  // Theorem environment setup
+  // placed behind i-figured to avoid captions appearing
+  show: show-theorion
+  set-inherited-levels(1)
+  set-theorion-numbering("A.1")
 
   body
 }
