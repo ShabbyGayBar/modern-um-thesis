@@ -1,11 +1,5 @@
 #import "@preview/i-figured:0.2.4"
 
-#let table-of-contents(
-  depth: 3,
-) = {
-  outline(depth: depth)
-}
-
 #let outline-image(lang: "en") = {
   if lang == "zh" [= 插图目录]
   else if lang == "pt" [= Lista de Figuras]
