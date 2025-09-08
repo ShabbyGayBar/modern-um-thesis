@@ -1,4 +1,5 @@
 #import "@preview/unify:0.7.1": *
+#import "@preview/subpar:0.2.2"
 #import "@preview/theorion:0.4.0": *
 #import "layouts/appendix.typ": appendix
 #import "layouts/doc.typ": doc
@@ -8,6 +9,7 @@
 #import "pages/cover-phd.typ": cover-phd
 #import "pages/declare-phd.typ": declare-phd
 #import "pages/outline.typ": outline-image, outline-table, outline-table-image
+#import "utils/line.typ": toprule, midrule, bottomrule
 #import "utils/symbols.typ": *
 
 /// All functions and variables to be used in the Typst thesis template for University of Macau.

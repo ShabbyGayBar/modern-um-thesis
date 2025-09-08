@@ -12,4 +12,19 @@
 /// A horizontal line that stretches across the page
 ///
 /// -> content
-#let hline(width: 1fr) = line(length: 100%)
+#let hline(stroke: 1pt) = line(length: 100%, stroke: stroke)
+
+/// The horizontal line at the top of a three-part table
+///
+/// -> content
+#let toprule = hline(stroke: 0.08em)
+
+/// The horizontal line under the first row of a three-part table
+///
+/// -> content
+#let midrule = hline(stroke: 0.05em)
+
+/// The horizontal line at the bottom of a three-part table
+///
+/// -> content
+#let bottomrule = toprule

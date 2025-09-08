@@ -187,7 +187,7 @@ Typst has a built-in function for inserting figures, which supports various imag
 
 Typically, figures are placed in floating environments. The reason they are called floating is that the final typeset position of the figure may not correspond to its position in the source file. This is a common issue for those who are new to typsetting languages. You could, however, fix the figure to the top or bottom of the page by setting the `placement` parameter.
 
-== Single Figure <single-figure>
+=== Single Figure <single-figure>
 
 Figures should have captions placed after the figure number, and centered below the figure. The source of the figure, if applicable, should be indicated in the upper right corner of the caption. The text must include references to the figure, such as "see @fig:single-figure" or "as shown in @fig:single-figure". If there is not enough space on the page to typeset the entire figure, place the figure on the next page.
 
@@ -210,9 +210,7 @@ Figures should have captions placed after the figure number, and centered below 
   caption: "Energy distribution as a function of radial distance.",
 ) <single-figure>
 
-== Multiple Figures <multiple-figures>
-
-When multiple figures are presented together, they should be labeled as (a), (b), (c), etc. Each sub-figure should have its own caption, and there should be an overall caption for the entire figure set.
+=== Multiple Figures <multiple-figures>
 
 #let subfig(body) = {
   canvas({
@@ -227,6 +225,49 @@ When multiple figures are presented together, they should be labeled as (a), (b)
     content("border.center", text(size: 2cm, font: "Noto Sans")[#body])
   })
 }
+
+A simple example of inserting multiple figures is shown in @fig:multiple-figures-single-numbering. These two horizontally aligned subfigures share a single figure counter and do not have individual subfigure titles.
+
+#figure(
+  grid(
+    columns: (1fr, 1fr),
+
+    subfig("A"), subfig("B"),
+  ),
+  caption: [Caption],
+) <multiple-figures-single-numbering>
+
+If the figures are independent and do not share a common figure counter, then you can use the `grid` function, as shown in @fig:multiple-figures-multiple-numbering-a and @fig:multiple-figures-multiple-numbering-b.
+
+#grid(
+  columns: (1fr, 1fr),
+  [#figure(
+    subfig("A"),
+    caption: "Caption for figure A",
+  ) <multiple-figures-multiple-numbering-a>],
+  [#figure(
+    subfig("B"),
+    caption: "Caption for figure B",
+  ) <multiple-figures-multiple-numbering-b>],
+)
+
+If you want to create a single figure with multiple subfigures, you can use the `grid` function within a `subpar` environment, as shown in @fig:multiple-figures-subfig-numbering-a and @fig:multiple-figures-subfig-numbering-b #footnote[
+  As mentioned in #link("https://github.com/JeyRunner/tuda-typst-templates/issues/27")[a Github issue], the `subpar` package is known to cause compatibility issues with the `i-figured` package, which can lead to wrong subfigure numbering. i.e. (a), (b) becomes (b), (d). Therefore, it is recommended to avoid using the `subpar` package when working with the `i-figured` package before the issue is resolved.
+].
+
+#subpar.grid(
+  [#figure(
+    subfig("A"),
+    caption: "Caption for figure A",
+  ) <multiple-figures-subfig-numbering-a>],
+  [#figure(
+    subfig("B"),
+    caption: "Caption for figure B",
+  ) <multiple-figures-subfig-numbering-b>],
+
+  columns: (1fr, 1fr),
+  caption: "Caption for subfigures A and B",
+) <multiple-figures-subfig-numbering>
 
 = Conclusion <conclusion>
 
