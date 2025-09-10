@@ -47,11 +47,5 @@
   set-inherited-levels(1)
   set-theorion-numbering("1.1")
 
-  // Add metadata for total words and characters (for thesis statistics)
-  context [
-    #metadata(state("total-words-cjk").final()) <total-words>
-    #metadata(state("total-characters").final()) <total-chars>
-  ]
-
   body
 }

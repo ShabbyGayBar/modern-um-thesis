@@ -1,6 +1,7 @@
 #import "../lib.typ": *
 #import "@preview/cetz:0.4.1": canvas, draw
 #import "@preview/cetz-plot:0.1.2": plot
+#import "@preview/wordometer:0.1.5": total-words, word-count
 
 #let (
   // Metadata
@@ -81,7 +82,8 @@
 // #outline-table-image() // List of Tables and Figures
 
 #show: mainmatter
-// #show: word-count-cjk // 正文字数统计
+
+#show: word-count // Start word counting
 
 = Introduction <introduction>
 
