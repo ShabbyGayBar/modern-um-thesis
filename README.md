@@ -94,7 +94,7 @@ This template draws inspiration from the official [Typst documentation](https://
 
 ## License
 
-The university logo in the `assets` folder is the property of the University of Macau and is used here with permission. 
+The university logo in the `src/assets` folder is the property of the University of Macau and is used here with permission. 
 
 The thesis guidelines in the `documentation/guidelines` folder are also the property of the University of Macau and are used here with permission.
 

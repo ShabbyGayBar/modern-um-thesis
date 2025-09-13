@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "../src/lib.typ": *
 #import "@preview/cetz:0.4.1": canvas, draw
 #import "@preview/cetz-plot:0.1.2": plot
 #import "@preview/wordometer:0.1.5": total-words, word-count
@@ -270,6 +270,24 @@ If you want to create a single figure with multiple subfigures, you can use the 
   columns: (1fr, 1fr),
   caption: "Caption for subfigures A and B",
 ) <multiple-figures-subfig-numbering>
+
+== Tables <tables>
+
+=== Basic Tables <basic-tables>
+
+Tables should be used to present data that is difficult to describe in text form.
+的编排应简单明了，表达一致，明晰易懂，表文呼应、内容一致。表题置于表
+上，研究生学位论文可以用中、英文两种文字居中排写，中文在上，也可以只用中文。
+表格的编排建议采用国际通行的三线表①。三线表可以使用 booktabs 提供的
+\toprule、\midrule 和 \bottomrule。它们与 longtable 能很好的配合使用。
+
+#figure(
+  table(
+    columns: 3,
+    ["Header 1", "Header 2", "Header 3"], ["Row 1", "Data 1", "Data 2"], ["Row 2", "Data 3", "Data 4"],
+  ),
+  caption: "Caption for the table",
+) <table-numbering>
 
 = Conclusion <conclusion>
 
