@@ -64,14 +64,7 @@
 
 #lorem(250)
 
-#declare(
-  // confidentialty-level: "internal", // 保密级别: "public" | "internal" | "secret" | "confidential"
-  // confidentialty-year: 2, // 保密年份数，请根据保密级别的要求填写
-  date: datetime.today(),
-  // original-statement-sign: place(dx: 13cm, dy: -1.3cm, image("figures/student-sign.png", height: 2em)),
-  // authorization-author-sign: place(dx: 5cm, dy: -1.3cm, image("figures/student-sign.png", height: 2em)),
-  // supervisor-sign: place(dx: 4cm, dy: -1.2cm, image("figures/supervisor-sign.png", height: 2em)),
-)
+#declare()
 
 #outline()
 
@@ -173,7 +166,7 @@ $
 
 @theorem is an example for a theorem:
 
-#theorem(title: "Residue theorem")[
+#theorem(title: [Residue theorem])[
   Let $U$ be a simply connected open subset of the complex plane containing a finite list of points $a_1, dots, a_n, U_0 = U without {a_1, dots, a_n}$ and a function $f$ holomorphic on $U_0$. Letting $gamma$ be a closed rectifiable curve in $U_0$, and denoting the residue of $f$ at each point $a_k$ by $"Res"(f, a_k)$ and the winding number of $gamma$ around $a_k$ by $upright(*I*)(gamma, a_k)$, the line integral of $f$ around $gamma$ is equal to $2 uppi ii$ times the sum of residues, each counted as many times as $gamma$ winds around the respective point:
 
   _To be continued_
@@ -209,7 +202,7 @@ Figures should have captions placed after the figure number, and centered below 
       plot.add(points, mark: "square", style: style),
     )
   }),
-  caption: "Energy distribution as a function of radial distance.",
+  caption: [Energy distribution as a function of radial distance.],
 ) <single-figure>
 
 === Multiple Figures <multiple-figures>
@@ -245,11 +238,11 @@ If the figures are independent and do not share a common figure counter, then yo
   columns: (1fr, 1fr),
   [#figure(
     subfig("A"),
-    caption: "Caption for figure A",
+    caption: [Caption for figure A],
   ) <multiple-figures-multiple-numbering-a>],
   [#figure(
     subfig("B"),
-    caption: "Caption for figure B",
+    caption: [Caption for figure B],
   ) <multiple-figures-multiple-numbering-b>],
 )
 
@@ -260,15 +253,15 @@ If you want to create a single figure with multiple subfigures, you can use the 
 #subpar.grid(
   [#figure(
     subfig("A"),
-    caption: "Caption for figure A",
+    caption: [Caption for figure A],
   ) <multiple-figures-subfig-numbering-a>],
   [#figure(
     subfig("B"),
-    caption: "Caption for figure B",
+    caption: [Caption for figure B],
   ) <multiple-figures-subfig-numbering-b>],
 
   columns: (1fr, 1fr),
-  caption: "Caption for subfigures A and B",
+  caption: [Caption for subfigures A and B],
 ) <multiple-figures-subfig-numbering>
 
 == Tables <tables>
@@ -286,7 +279,7 @@ Tables should be used to present data that is difficult to describe in text form
     columns: 3,
     ["Header 1", "Header 2", "Header 3"], ["Row 1", "Data 1", "Data 2"], ["Row 2", "Data 3", "Data 4"],
   ),
-  caption: "Caption for the table",
+  caption: [Caption for the table],
 ) <table-numbering>
 
 = Conclusion <conclusion>
