@@ -15,6 +15,12 @@
 ) = {
   set page(numbering: "i")
   counter(page).update(1)
+  // Page number at first page
+  set page(
+    footer: context {
+      if counter(page).get().first() == 1 { none } else { h(1fr) + counter(page).display() + h(1fr) }
+    },
+  ) if doctype == "master"
   // Omit numbering for first level headings
   set heading(numbering: none, supplement: none)
   // Outline style settings
