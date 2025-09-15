@@ -14,13 +14,13 @@
   ///
   /// -> bool
   double-sided: true,
-  /// Thesis information, including:
+  /// Thesis information
   ///
   /// -> dictionary
   info: (:),
 ) = {
   set page(margin: (top: 1.5in, bottom: 1.2in, left: 1.5in, right: 1.5in))
-  set par(leading: 0.5em, spacing: 0.5em, justify: true)
+  set par(leading: 0.17em, spacing: 0.17em, justify: true)
   set align(center)
   set pagebreak(weak: true, to: if double-sided { "odd" })
 
@@ -32,13 +32,13 @@
   grid(
     columns: 1,
     gutter: (
-      1.38cm + 0.5em,
-      0.74cm + 0.5em,
-      0.99cm + 0.5em,
-      4.94cm + 0.5em,
-      4.94cm + 0.5em,
-      0.64cm + 0.5em,
-      0.5em,
+      0.75em + 39pt,
+      0.17em + 21pt,
+      0.17em + 28pt,
+      1.33em + 140pt,
+      0.75em + 140pt,
+      0.75em + 18pt,
+      0.17em,
     ),
     align: center + top,
 
@@ -54,7 +54,7 @@
     // Year
     [#datetime.today().year()],
     // University Logo
-    image("../assets/um-logo-mono.png", width: 2.86cm),
+    image("../assets/um-logo-mono.png", width: 2.87cm),
     // Academic Unit
     info.academic-unit-en,
     [University of Macau],
@@ -70,12 +70,16 @@
   grid(
     columns: 1,
     gutter: (
-      1.38cm + 0.5em,
-      0.74cm + 0.5em,
-      0.99cm + 0.5em,
-      0.99cm + 0.5em,
-      0.99cm + 0.5em,
-      0.99cm + 0.5em,
+      0.75em + 39pt,
+      0.17em + 21pt,
+      1.33em,
+      1.33em,
+      0.17em,
+      0.17em + 28pt,
+      0.17em + 28pt,
+      0.17em,
+      0.17em + 28pt,
+      0.75em + 28pt,
       0em,
     ),
     align: center + top,
@@ -85,24 +89,25 @@
     // Thesis Title
     info.title-en,
     // Name of Author
-    [by\ \
-      #info.author-en\ \ \
-      A thesis submitted in partial fulfillment of the\
+    [by],
+    [#info.author-en],
+    [\ ],
+    [A thesis submitted in partial fulfillment of the\
       requirements for the degree of],
     // Degree Title
     info.degree-en,
-    [#info.academic-unit-en\
-      University of Macau],
+    // Name of Academic Unit
+    [#info.academic-unit-en],
+    [University of Macau],
     // Expected Degree Awarding Year
-    [#datetime.today().year()],
+    [#date.year()],
     // Approval Signature
     [\ \ \ \ \ \
       #grid(
         columns: 2,
         rows: 7,
-        row-gutter: (0cm, 0.49cm),
+        row-gutter: (0.17em, 1.33em),
         align: (center + top),
-        inset: 0.25em,
 
         grid.cell(
           x: 0,

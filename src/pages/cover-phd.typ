@@ -16,13 +16,14 @@
   ///
   /// -> bool
   double-sided: true,
-  /// Thesis information, including:
+  /// Thesis information
   ///
   /// -> dictionary
   info: (:),
 ) = {
   // Normal margins for cover, title page and author's right page
   set page(margin: (top: 1in, bottom: 1in, left: 1in, right: 1in))
+  set par(leading: 0.17em, spacing: 0.17em, justify: true)
   set align(center)
   set pagebreak(weak: true, to: if double-sided { "odd" })
 
@@ -32,7 +33,14 @@
 
   grid(
     columns: 1,
-    gutter: (1fr, 6em, 6em, 4em, 4em, 4em),
+    gutter: (
+      1fr,
+      0.17em + 28pt,
+      1.33em + 140pt,
+      0.75em + 140pt,
+      0.75em + 18pt,
+      0.17em,
+    ),
     align: center + top,
 
     // Thesis title
@@ -45,11 +53,11 @@
     },
     // Name of Author
     if lang == "en" {
-      [by\ #info.author-en]
+      [by\ \ #info.author-en]
     } else if lang == "zh" {
-      [#info.author-zh\ #info.author-en]
+      [\ #info.author-zh\ #info.author-en]
     } else if lang == "pt" {
-      [#par(leading: 1em, spacing: 0em)[por\ by\ ] #info.author-pt]
+      [por\ by\  #info.author-pt]
     },
     // Degree Title
     if lang == "en" {
@@ -60,7 +68,7 @@
       [#info.degree-pt\ #info.degree-en]
     },
     // Year
-    [#datetime.today().year()],
+    [#date.year()],
     // University Logo
     image(
       "../assets/um-logo.svg",
@@ -104,11 +112,11 @@
     },
     // Name of Author
     if lang == "en" {
-      [by\ #info.author-en]
+      [by\ \ #info.author-en]
     } else if lang == "zh" {
-      [#info.author-zh\ #info.author-en]
+      [\ #info.author-zh\ #info.author-en]
     } else if lang == "pt" {
-      [#par(leading: 1em, spacing: 0em)[por\ by\ ] #info.author-pt]
+      [por\ by\  #info.author-pt]
     },
     // Name of Supervisor
     if lang == "en" {
@@ -187,12 +195,14 @@
 
   pagebreak()
 
-  // Author’s right page.
+  /////////////////////////
+  // Author's right page //
+  /////////////////////////
   v(10cm - 1in) // 10 cm below top of page, accounting for page margin
   if lang == "pt" {
-    [#datetime.today().year() por\ #format-name(info.author-pt)]
+    [#date.year() por\ #format-name(info.author-pt)]
   } else {
-    [#datetime.today().year() by\ #format-name(info.author-en)]
+    [#date.year() by\ #format-name(info.author-en)]
   }
 
   pagebreak()
