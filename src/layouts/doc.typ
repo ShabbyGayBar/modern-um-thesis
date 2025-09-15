@@ -64,9 +64,12 @@
     bottom-edge: 0em,
   )
   set par(
-    // Double-line spacing for doctoral thesis, 1.5-line for others
+    justify: true,
+    // 0.17em: single line spacing in MS Word
+    // 0.75em: 1.5 line spacing in MS Word
+    // 1.33em: double line spacing in MS Word
     leading: if doctype == "doctor" { 1.33em } else { 0.75em },
-    spacing: if doctype == "doctor" { 1.33em } else { 0.75em },
+    spacing: 1.33em,
     // Enable first-line indent for Chinese
     first-line-indent: if lang == "zh" { (amount: 2em, all: true) } else { (amount: 0pt, all: false) },
   )
@@ -82,7 +85,8 @@
     }
   }
   // Double-line spacing for headings
-  show heading: set block(above: 2em, below: 2em)
+  show heading: set block(above: 1.33em, below: 0.75em)
+  show heading.where(level: 1): set block(below: 36pt)
   // Change bibliography title to "References"
   set bibliography(title: "References") if doctype == "doctor"
 
@@ -97,7 +101,7 @@
   show figure.where(kind: image): set figure(supplement: [Fig.])
   show figure.caption: set text(weight: "bold")
   // Decrease spacing in figure captions
-  show figure.caption: set par(leading: 1em, justify: false)
+  show figure.caption: set par(leading: 0.17em, justify: false)
   // Place table and algorithm captions above
   show figure.where(kind: table): set figure.caption(position: top)
   show figure.where(kind: "algorithm"): set figure.caption(position: top)
@@ -110,7 +114,7 @@
 
   set table(stroke: none)
   // Decrease spacing in table contents
-  show table: set par(leading: 1em, spacing: 1em)
+  show table: set par(leading: 0.17em, spacing: 0.75em)
 
   // List settings
 
@@ -118,9 +122,9 @@
   show ref: el.ref-enum
   show: el.default-enum-list
   // Decrease spacing in table contents
-  show footnote.entry: set par(leading: 1em, spacing: 1em)
-  show list: set par(leading: 1em)
-  show enum: set par(leading: 1em)
+  show footnote.entry: set par(leading: 0.17em, spacing: 0.75em)
+  show list: set par(leading: 0.17em)
+  show enum: set par(leading: 0.17em)
 
   set math.equation(number-align: end + bottom, supplement: none)
 
