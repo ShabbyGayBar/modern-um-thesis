@@ -60,11 +60,13 @@
     font: ("Times New Roman", "Pmingliu"),
     size: 12pt,
     lang: lang,
+    top-edge: 1em,
+    bottom-edge: 0em,
   )
   set par(
-    // Double-line spacing
-    leading: 2em,
-    spacing: 2em,
+    // Double-line spacing for doctoral thesis, 1.5-line for others
+    leading: if doctype == "doctor" { 1.33em } else { 0.75em },
+    spacing: if doctype == "doctor" { 1.33em } else { 0.75em },
     // Enable first-line indent for Chinese
     first-line-indent: if lang == "zh" { (amount: 2em, all: true) } else { (amount: 0pt, all: false) },
   )
