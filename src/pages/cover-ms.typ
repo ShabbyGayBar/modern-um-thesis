@@ -127,32 +127,4 @@
   )
 
   pagebreak()
-
-  ////////////////
-  // Quote Slip //
-  ////////////////
-
-  set text(size: 12pt)
-  set align(left)
-
-  let fill(width) = box(width: width, repeat(sym.space.nobreak))
-
-  [\ \ \ \ In presenting this thesis in partial fulfillment of the requirements for a Master's degree at the University of Macau, I agree that the Library and the Faculty of Science and Technology shall make its copies freely available for inspection. However, reproduction of this thesis for any purposes or by any means shall not be allowed without my written permission.    Authorization is sought by contacting the author at\ \
-
-    #h(1cm)
-    Address:\ \
-
-    #h(1cm)
-    Telephone:\
-    #h(1cm)
-    Fax:\
-    #h(1cm)
-    E-mail:\ \ \
-
-    #h(7.62cm)
-    Signature: #uline()\ \
-    #h(7.62cm)
-    Date: #uline()]
-
-  pagebreak()
 }

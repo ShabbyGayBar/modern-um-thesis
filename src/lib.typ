@@ -8,25 +8,26 @@
 #import "pages/abstract.typ": abstract
 #import "pages/cover-ms.typ": cover-ms
 #import "pages/cover-phd.typ": cover-phd
+#import "pages/declare-ms.typ": declare-ms
 #import "pages/declare-phd.typ": declare-phd
 #import "pages/outline.typ": outline-image, outline-table, outline-table-image
 #import "utils/line.typ": toprule, midrule, bottomrule
 #import "utils/symbols.typ": *
 
 /// All functions and variables to be used in the Typst thesis template for University of Macau.
-/// 
+///
 /// -> dictionary
 #let documentclass(
   /// Type of thesis
-  /// 
+  ///
   /// -> "doctor" | "master" | "bachelor"
   doctype: "doctor",
   /// Date of submission
-  /// 
+  ///
   /// -> datetime
   date: datetime.today(),
   /// Language of the thesis
-  /// 
+  ///
   /// Master's theses must be written in English.
   ///
   /// If you choose "master" doctype, DO NOT select the other 2 languages.
@@ -34,21 +35,21 @@
   /// -> "en" | "zh" | "pt"
   lang: "en",
   /// Enable double-sided printing
-  /// 
+  ///
   /// For Doctoral theses, double-sided printing is required (i.e. please set to true).
-  /// 
+  ///
   /// For Master's and Bachelor's theses though, single-sided printing is strongly recommended, but double-sided printing is still allowed.
-  /// 
+  ///
   /// -> bool
   double-sided: true,
   /// Add margins to binding side for printing
-  /// 
+  ///
   /// In most cases, this should be set to true.
-  /// 
+  ///
   /// -> bool
   print: true,
   /// Thesis information, including:
-  /// 
+  ///
   /// `title-en`: Title of Thesis, *required*\
   /// `title-zh`: 论文标题\
   /// `title-pt`: Título da Tese\
@@ -70,9 +71,9 @@
   /// `department-en`: Name of Department\
   /// `department-zh`: 系名称\
   /// `department-pt`: Nome do Departamento\
-  /// 
+  ///
   /// Apart from all *required* entries above, if you choose a language other than "en", you must also provide translations for all *required* entries in that language.
-  /// 
+  ///
   /// -> dictionary
   info: (:),
 ) = {
@@ -82,7 +83,7 @@
   if not ("en", "zh", "pt").contains(lang) {
     panic("Invalid language. Please select one of the following languages: en, zh, pt.")
   }
-  
+
   return (
     // Metadata
     doctype: doctype,
@@ -150,11 +151,19 @@
       }
     },
     declare: (..args) => {
-      declare-phd(
-        ..args,
-        lang: lang,
-        double-sided: double-sided,
-      )
+      if doctype == "doctor" {
+        declare-phd(
+          ..args,
+          lang: lang,
+          double-sided: double-sided,
+        )
+      } else if doctype == "master" {
+        declare-ms(
+          ..args,
+          lang: lang,
+          double-sided: double-sided,
+        )
+      }
     },
     outline-image: (..args) => {
       outline-image(
