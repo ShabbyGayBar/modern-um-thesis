@@ -5,6 +5,7 @@
 #import "layouts/doc.typ": doc
 #import "layouts/frontmatter.typ": frontmatter
 #import "layouts/mainmatter.typ": mainmatter
+#import "pages/abstract.typ": abstract
 #import "pages/cover-ms.typ": cover-ms
 #import "pages/cover-phd.typ": cover-phd
 #import "pages/declare-phd.typ": declare-phd
@@ -122,6 +123,15 @@
       )
     },
     // Pages
+    abstract: (..args) => {
+      abstract(
+        ..args,
+        doctype: doctype,
+        lang: lang,
+        double-sided: double-sided,
+        info: info + args.named().at("info", default: (:)),
+      )
+    },
     cover: (..args) => {
       if doctype == "doctor" {
         cover-phd(

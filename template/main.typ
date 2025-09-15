@@ -16,13 +16,14 @@
   mainmatter,
   appendix,
   // Pages
+  abstract,
   cover,
   declare,
   outline-image,
   outline-table,
   outline-table-image,
 ) = documentclass(
-  doctype: "doctor",
+  doctype: "master",
   date: datetime.today(),
   lang: "en",
   double-sided: true,
@@ -56,15 +57,18 @@
 
 #cover()
 
+// Move declaration to front matter for doctoral thesis
+#declare(
+  // date: datetime.today()
+  // address: none, // For master thesis
+  // telephone: none, // For master thesis
+  // fax: none, // For master thesis
+  // email: none, // For master thesis
+)
+
+#abstract()[#lorem(200)] // Move abstract to front matter for doctoral thesis
+
 #show: frontmatter
-
-= Acknowledgements
-
-= Abstract
-
-#lorem(250)
-
-#declare()
 
 #outline()
 
