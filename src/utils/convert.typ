@@ -11,7 +11,7 @@
   } else if it.has("children") {
     it.children.map(to-str).join()
   } else if it.has("body") {
-    to-string(it.body)
+    to-str(it.body)
   } else if it == [ ] {
     " "
   }
