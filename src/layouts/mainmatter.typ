@@ -27,6 +27,7 @@
     header: context {
       if is-chapter-page() { none } else { h(1fr) + counter(page).display() + h(1fr) }
     },
+    footer: none,
     numbering: none,
   ) if doctype == "master"
   // Set chapter prefix
