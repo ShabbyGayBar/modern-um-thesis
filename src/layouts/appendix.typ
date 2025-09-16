@@ -39,11 +39,9 @@
 
   // i-figured settings
   show heading: i-figured.reset-counters
-  show figure: i-figured.show-figure.with(numbering: "A.1")
   show math.equation: i-figured.show-equation.with(numbering: "(A.1)")
 
   // Theorem environment setup
-  // placed behind i-figured to avoid captions appearing
   show: show-theorion
   set-inherited-levels(1)
   set-theorion-numbering("A.1")

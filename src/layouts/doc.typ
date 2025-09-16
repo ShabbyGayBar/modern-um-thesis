@@ -1,6 +1,7 @@
 #import "@preview/cuti:0.3.0": show-cn-fakebold
-#import "@preview/numbly:0.1.0": numbly
+#import "@preview/hallon:0.1.1" as hallon
 #import "@preview/itemize:0.1.2" as el
+#import "@preview/numbly:0.1.0": numbly
 #import "../utils/convert.typ": *
 #import "../utils/numbering.typ": *
 
@@ -98,7 +99,13 @@
 
   // Figure/image settings
 
+  // Apply subfigure styles.
+  show: hallon.style-figures.with(heading-levels: 1)
+  // Use short supplement for figures and subfigures.
   show figure.where(kind: image): set figure(supplement: [Fig.])
+  show figure.where(kind: image): set figure.caption(separator: [. ])
+  show figure.where(kind: "subfigure"): set figure(supplement: [Fig.])
+  // Figure captions settings
   show figure.caption: set text(weight: "bold")
   // Decrease spacing in figure captions
   show figure.caption: set par(leading: 0.17em, justify: false)

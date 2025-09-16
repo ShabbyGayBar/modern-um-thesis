@@ -146,7 +146,11 @@ The end of the formula needs punctuation, whether a comma or a period, depending
 
 $
   (2h)/uppi integral_0^infinity sin(omega delta)/omega cos(omega x) dif omega
-  = cases(h", "&abs(x) < delta ",", h/2", "&x=plus.minus delta",", 0", "&abs(x) > delta ".")
+  = cases(
+    h", " & abs(x) < delta ",",
+    h/2", " & x=plus.minus delta",",
+    0", " & abs(x) > delta "."
+  )
 $
 
 When the formula is long, it is best to break the line at the equal sign "=".
@@ -207,7 +211,7 @@ Figures should have captions placed after the figure number, and centered below 
     )
   }),
   caption: [Energy distribution as a function of radial distance.],
-) <single-figure>
+) <fig:single-figure>
 
 === Multiple Figures <multiple-figures>
 
@@ -234,7 +238,7 @@ A simple example of inserting multiple figures is shown in @fig:multiple-figures
     subfig("A"), subfig("B"),
   ),
   caption: [Caption],
-) <multiple-figures-single-numbering>
+) <fig:multiple-figures-single-numbering>
 
 If the figures are independent and do not share a common figure counter, then you can use the `grid` function, as shown in @fig:multiple-figures-multiple-numbering-a and @fig:multiple-figures-multiple-numbering-b.
 
@@ -243,30 +247,34 @@ If the figures are independent and do not share a common figure counter, then yo
   [#figure(
     subfig("A"),
     caption: [Caption for figure A],
-  ) <multiple-figures-multiple-numbering-a>],
+  ) <fig:multiple-figures-multiple-numbering-a>],
   [#figure(
     subfig("B"),
     caption: [Caption for figure B],
-  ) <multiple-figures-multiple-numbering-b>],
+  ) <fig:multiple-figures-multiple-numbering-b>],
 )
 
 If you want to create a single figure with multiple subfigures, you can use the `grid` function within a `subpar` environment, as shown in @fig:multiple-figures-subfig-numbering-a and @fig:multiple-figures-subfig-numbering-b #footnote[
   As mentioned in #link("https://github.com/JeyRunner/tuda-typst-templates/issues/27")[a Github issue], the `subpar` package is known to cause compatibility issues with the `i-figured` package, which can lead to wrong subfigure numbering. i.e. (a), (b) becomes (b), (d). Therefore, it is recommended to avoid using the `subpar` package when working with the `i-figured` package before the issue is resolved.
 ].
 
-#subpar.grid(
-  [#figure(
-    subfig("A"),
-    caption: [Caption for figure A],
-  ) <multiple-figures-subfig-numbering-a>],
-  [#figure(
-    subfig("B"),
-    caption: [Caption for figure B],
-  ) <multiple-figures-subfig-numbering-b>],
+#figure(
+  grid(
+    columns: (1fr, 1fr),
 
-  columns: (1fr, 1fr),
+    subfigure(
+      subfig("A"),
+      caption: [Caption for figure A],
+      label: <fig:multiple-figures-subfig-numbering-a>,
+    ),
+    subfigure(
+      subfig("B"),
+      caption: [Caption for figure B],
+      label: <fig:multiple-figures-subfig-numbering-b>,
+    ),
+  ),
   caption: [Caption for subfigures A and B],
-) <multiple-figures-subfig-numbering>
+) <fig:multiple-figures-subfig-numbering>
 
 == Tables <tables>
 

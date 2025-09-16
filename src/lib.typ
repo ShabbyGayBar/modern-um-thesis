@@ -1,6 +1,6 @@
-#import "@preview/unify:0.7.1": *
-#import "@preview/subpar:0.2.2"
+#import "@preview/hallon:0.1.1" as hallon: subfigure
 #import "@preview/theorion:0.4.0": *
+#import "@preview/unify:0.7.1": *
 #import "layouts/appendix.typ": appendix
 #import "layouts/doc.typ": doc
 #import "layouts/frontmatter.typ": frontmatter
