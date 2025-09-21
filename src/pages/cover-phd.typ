@@ -71,8 +71,8 @@
     [#date.year()],
     // University Logo
     image(
-      "../assets/um-logo.svg",
-      width: 5cm,
+      "../assets/UM-Logo_V-Black.svg",
+      width: 199.8pt,
     ),
     // Name of Academic Unit
     if lang == "en" {

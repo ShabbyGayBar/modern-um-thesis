@@ -54,7 +54,7 @@
     // Year
     [#datetime.today().year()],
     // University Logo
-    image("../assets/um-logo-mono.png", width: 2.87cm),
+    image("../assets/UM-Logo_Monotone.png", height: 79.1pt),
     // Academic Unit
     info.academic-unit-en,
     [University of Macau],
