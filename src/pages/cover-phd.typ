@@ -74,20 +74,13 @@
       "../assets/UM-Logo_V-Black.svg",
       width: 199.8pt,
     ),
-    // Name of Academic Unit
+    // Academic Unit
     if lang == "en" {
-      [#info.academic-unit-en\ \ ]
+      [#info.academic-unit-en\ \ University of Macau\ \ ]
     } else if lang == "zh" {
-      [#info.academic-unit-zh\ #info.academic-unit-en]
+      [#info.academic-unit-zh\ #info.academic-unit-en\ 澳門大學\ University of Macau]
     } else if lang == "pt" {
-      [#info.academic-unit-pt\ #info.academic-unit-en]
-    },
-    if lang == "en" {
-      [University of Macau\ \ ]
-    } else if lang == "zh" {
-      [澳門大學\ University of Macau]
-    } else if lang == "pt" {
-      [Universidade de Macau\ University of Macau]
+      [#info.academic-unit-pt\ #info.academic-unit-en\ Universidade de Macau\ University of Macau]
     },
   )
 
@@ -127,43 +120,31 @@
       [ORIENTADOR(A) / SUPERVISOR: #info.supervisor-pt\ \ ]
     },
     // Name of Co-supervisor(s) (if applicable)
-    if lang == "en" {
+    ..if lang == "en" {
       if "co_supervisor-en" in info {
-        [CO-SUPERVISOR: #info.co_supervisor-en\ \ ]
-      } else {
-        []
+        ([CO-SUPERVISOR: #info.co_supervisor-en\ \ ],)
       }
     } else if lang == "zh" {
       if "co_supervisor-zh" in info and "co_supervisor-en" in info {
-        [副導師：#info.co_supervisor-zh\ CO-SUPERVISOR: #info.co_supervisor-en]
-      } else {
-        []
+        ([副導師：#info.co_supervisor-zh\ CO-SUPERVISOR: #info.co_supervisor-en],)
       }
     } else if lang == "pt" {
       if "co_supervisor-pt" in info {
-        [CO-ORIENTADOR(A) / CO-SUPERVISOR: #info.co_supervisor-pt\ \ ]
-      } else {
-        []
+        ([CO-ORIENTADOR(A) / CO-SUPERVISOR: #info.co_supervisor-pt\ \ ],)
       }
     },
     // Name of Department (if applicable)
-    if lang == "en" {
+    ..if lang == "en" {
       if "department-en" in info {
-        [DEPARTMENT: #info.department-en\ \ ]
-      } else {
-        []
+        ([DEPARTMENT: #info.department-en\ \ ],)
       }
     } else if lang == "zh" {
       if "department-zh" in info and "department-en" in info {
-        [學系：#info.department-zh\ DEPARTMENT: #info.department-en]
-      } else {
-        []
+        ([學系：#info.department-zh\ DEPARTMENT: #info.department-en],)
       }
     } else if lang == "pt" {
       if "department-pt" in info and "department-en" in info {
-        [DEPARTAMENTO: #info.department-pt\ DEPARTMENT: #info.department-en]
-      } else {
-        []
+        ([DEPARTAMENTO: #info.department-pt\ DEPARTMENT: #info.department-en],)
       }
     },
     // Degree Title
@@ -178,18 +159,11 @@
     [#datetime.today().year()],
     // Academic Unit
     if lang == "en" {
-      [#info.academic-unit-en\ \ ]
+      [#info.academic-unit-en\ \ University of Macau\ \ ]
     } else if lang == "zh" {
-      [#info.academic-unit-zh\ #info.academic-unit-en]
+      [#info.academic-unit-zh\ #info.academic-unit-en\ 澳門大學\ University of Macau]
     } else if lang == "pt" {
-      [#info.academic-unit-pt\ #info.academic-unit-en]
-    },
-    if lang == "en" {
-      [University of Macau\ \ ]
-    } else if lang == "zh" {
-      [澳門大學\ University of Macau]
-    } else if lang == "pt" {
-      [Universidade de Macau\ University of Macau]
+      [#info.academic-unit-pt\ #info.academic-unit-en\ Universidade de Macau\ University of Macau]
     },
   )
 
