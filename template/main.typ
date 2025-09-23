@@ -397,7 +397,7 @@ int main() {
 
 This chapter concludes the thesis.
 
-#bibliography("./ref.bib", full: true, style: "apa")
+#bibliography("./refs.bib", full: true, style: "apa")
 
 #show: appendix
 
