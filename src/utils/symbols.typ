@@ -1,3 +1,4 @@
-#let ii = $upright(i)$
+#let bf(x) = math.bold(math.upright(x))
+#let ppi = $upright(pi)$
 #let ee = $upright(e)$
-#let uppi = $upright(pi)$
+#let ii = $upright(i)$

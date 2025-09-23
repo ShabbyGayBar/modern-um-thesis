@@ -17,12 +17,12 @@
 /// The horizontal line at the top of a three-part table
 ///
 /// -> content
-#let toprule = hline(stroke: 0.08em)
+#let toprule = table.hline(stroke: 0.08em)
 
 /// The horizontal line under the first row of a three-part table
 ///
 /// -> content
-#let midrule = hline(stroke: 0.05em)
+#let midrule = table.hline(stroke: 0.05em)
 
 /// The horizontal line at the bottom of a three-part table
 ///

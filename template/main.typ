@@ -1,6 +1,11 @@
 #import "../src/lib.typ": *
+
+// Optional third-party packages. Remove if unnecessary.
 #import "@preview/cetz:0.4.1": canvas, draw
 #import "@preview/cetz-plot:0.1.2": plot
+#import "@preview/codly:1.3.0": *
+#import "@preview/codly-languages:0.1.1": *
+#import "@preview/fletcher:0.5.8" as fletcher: diagram, edge, node
 #import "@preview/wordometer:0.1.5": total-words, word-count
 
 #let (
@@ -29,6 +34,7 @@
   double-sided: true,
   print: true,
   info: (
+    // Fields ending with "-en" and the `lang` parameter are required
     title-en: [Title of Thesis],
     title-zh: [论文标题],
     title-pt: [Título da Tese],
@@ -44,6 +50,7 @@
     supervisor-en: [Name of Supervisor],
     supervisor-zh: [导师姓名],
     supervisor-pt: [Nome do Supervisor],
+    // Optional fields
     co_supervisor-en: [Name of Co-Supervisor],
     co_supervisor-zh: [共同导师姓名],
     co_supervisor-pt: [Nome do Co-Supervisor],
@@ -66,7 +73,15 @@
   // email: none, // For master thesis
 )
 
-#abstract()[#lorem(200)] // Move abstract to front matter for doctoral thesis
+#abstract()[
+  The Faculty requires an Abstract for a master's or doctoral thesis.  It must be in both submitted copies and must follow the format given in the sample. The title of the thesis must appear exactly as it does on the Title Page. The name of your Supervisor must appear in full with his or her appropriate academic title (no professional titles may be used) and the name of the program authorized to offer the degree.
+
+  The text of the Abstract must be one-and-one-half or double-spaced and must conform to margin requirements.
+
+  All abstracts must not exceed 350 words or 35 lines (this requirement is inline with the requirement of Dissertation Abstracts International so that your abstract could be published in full there if necessary).
+
+  It is requested by the publisher that the Abstract not include formulas, diagrams, or symbols. Should a formula, diagram, or symbol be essential to the text in the Abstract, it may not be handwritten. If Greek letters of the alphabet are to be used, they must be clearly inscribed.
+] // Move abstract to front matter for doctoral thesis
 
 #show: frontmatter
 
@@ -80,11 +95,13 @@
 
 #show: mainmatter
 
+#show: codly-init.with()
+
 #show: word-count // Start word counting
 
 = Introduction <introduction>
 
-This thesis presents the research on...
+This is a sample document of the University of Macau (UM) Typst thesis template.
 
 == Second level heading <2nd-level-heading>
 
@@ -96,7 +113,7 @@ This thesis presents the research on...
 
 == Footnotes <footnotes>
 
-#lorem(10)#footnote()[#lorem(20)]
+Footnotes contain additional textual material or references to specific citations in the text.#footnote()[When citing literature, give as much information on the page where the citation is made as is consistent with publication practice in the field of research. Footnotes, Chapter Notes, or End Notes do not take the place of a Bibliography or List of References.]
 
 == Font <font>
 
@@ -132,20 +149,20 @@ Typst also has special syntax and library functions to typeset mathematical form
 
 According to @ISO_math, an explicitly defined function not depending on the context is printed in upright type, e.g. $sin$, $exp$, $ln$, $Gamma$.
 
-While mathematical constants, the values of which never change, are printed in upright type, e.g. $ee = num("2.718281828") dots$; $uppi = num("3.141592") dots$; $ii^2 = -1$.
+While mathematical constants, the values of which never change, are printed in upright type, e.g. $ee = num("2.718281828") dots$; $ppi = num("3.141592") dots$; $ii^2 = -1$.
 
 Well-defined operators are also printed in upright type, e.g. $div$, $partial$ in $partial x$ and each $dif$ in $(dif f)/(dif x)$.
 
 Formulas should be centered on a new line. Each formula should be numbered sequentially by chapter, with the number aligned to the right.
 
-$ ee^(ii uppi) + 1 = 0 $
+$ ee^(ii ppi) + 1 = 0 $
 
 $ (dif^2 u)/(dif t^2) = integral f(x) dif x $
 
 The end of the formula needs punctuation, whether a comma or a period, depending on the following sentence.
 
 $
-  (2h)/uppi integral_0^infinity sin(omega delta)/omega cos(omega x) dif omega
+  (2h)/ppi integral_0^infinity sin(omega delta)/omega cos(omega x) dif omega
   = cases(
     h", " & abs(x) < delta ",",
     h/2", " & x=plus.minus delta",",
@@ -175,24 +192,46 @@ $
 @theorem is an example for a theorem:
 
 #theorem(title: [Residue theorem])[
-  Let $U$ be a simply connected open subset of the complex plane containing a finite list of points $a_1, dots, a_n, U_0 = U without {a_1, dots, a_n}$ and a function $f$ holomorphic on $U_0$. Letting $gamma$ be a closed rectifiable curve in $U_0$, and denoting the residue of $f$ at each point $a_k$ by $"Res"(f, a_k)$ and the winding number of $gamma$ around $a_k$ by $upright(*I*)(gamma, a_k)$, the line integral of $f$ around $gamma$ is equal to $2 uppi ii$ times the sum of residues, each counted as many times as $gamma$ winds around the respective point:
+  Let $U$ be a simply connected open subset of the complex plane containing a finite list of points $a_1, dots, a_n, U_0 = U without {a_1, dots, a_n}$ and a function $f$ holomorphic on $U_0$. Letting $gamma$ be a closed rectifiable curve in $U_0$, and denoting the residue of $f$ at each point $a_k$ by $"Res"(f, a_k)$ and the winding number of $gamma$ around $a_k$ by $upright(*I*)(gamma, a_k)$, the line integral of $f$ around $gamma$ is equal to $2 ppi ii$ times the sum of residues, each counted as many times as $gamma$ winds around the respective point:
 
-  _To be continued_
+  $
+    integral.cont_gamma f(z) dif z
+    = 2 ppi ii sum_(k=1)^n upright(I)(gamma, a_k) "Res"(f, a_k).
+  $
+
+  If $gamma$ is a positively oriented simple closed curve, $upright(I)(gamma, a_k)$ is 1 if $a_k$ is in the interior of $gamma$ and 0 if not, therefore
+
+  $
+    integral.cont_gamma f(z) dif z
+    = 2 ppi ii sum "Res"(f, a_k).
+  $
+
+  with the sum over those $a_k$ inside $gamma$.
+
+  Proof of @theorem.
+
+  #proof[
+    First, according to ...\
+    Next, we have ...\
+    Finally, ...
+  ]
 ] <theorem>
 
 == Notation Of References <notation-of-references>
 
-= Floats <floats>
+= Illustrations <illustrations>
+
+The term _illustrations_ refers to informational material that illustrates and enhances the text. Figures, Maps, and tables are all examples of illustrations and are either inserted throughout the text, appearing as soon as possible after the references to them have been made, or grouped at the end of each chapter. Whichever method you choose, you must use it consistently for all the figures, tables, or other illustrations included.
 
 == Figures <figures>
 
-Typst has a built-in function for inserting figures, which supports various image formats, including PNG, JPEG, PDF, and SVG.
+Figures may include photographs (original or photocopied), charts, diagrams, graphs, and drawings. If original photographs are used, they must be included in both copies. They must all be listed in the preliminary pages in a List of Figures. Figure numbers and captions appear below the figure.
 
-Typically, figures are placed in floating environments. The reason they are called floating is that the final typeset position of the figure may not correspond to its position in the source file. This is a common issue for those who are new to typsetting languages. You could, however, fix the figure to the top or bottom of the page by setting the `placement` parameter.
+Typst has a built-in `figure` function for inserting figures, which supports various image formats, including PNG, JPEG, PDF, and SVG.
 
 === Single Figure <single-figure>
 
-Figures should have captions placed after the figure number, and centered below the figure. The source of the figure, if applicable, should be indicated in the upper right corner of the caption. The text must include references to the figure, such as "see @fig:single-figure" or "as shown in @fig:single-figure". If there is not enough space on the page to typeset the entire figure, place the figure on the next page.
+A simple example of inserting a single figure is shown in @fig:single-figure.
 
 #figure(
   canvas({
@@ -206,8 +245,17 @@ Figures should have captions placed after the figure number, and centered below 
       size: (9, 6),
       x-label: [$r$ (#unit("mm"))],
       y-label: [Energy (#unit("W/m^3"))],
+      x-min: 0,
+      x-max: 7,
+      y-min: -1000,
+      y-max: 11000,
 
-      plot.add(points, mark: "square", style: style),
+      {
+        plot.add(points, mark: "square", style: style)
+        plot.annotate(
+          content((2.4, 4000), $q_v=(sigma omega^2 abs(bf(A))^2)/2$),
+        )
+      },
     )
   }),
   caption: [Energy distribution as a function of radial distance.],
@@ -254,9 +302,7 @@ If the figures are independent and do not share a common figure counter, then yo
   ) <fig:multiple-figures-multiple-numbering-b>],
 )
 
-If you want to create a single figure with multiple subfigures, you can use the `grid` function within a `subpar` environment, as shown in @fig:multiple-figures-subfig-numbering-a and @fig:multiple-figures-subfig-numbering-b #footnote[
-  As mentioned in #link("https://github.com/JeyRunner/tuda-typst-templates/issues/27")[a Github issue], the `subpar` package is known to cause compatibility issues with the `i-figured` package, which can lead to wrong subfigure numbering. i.e. (a), (b) becomes (b), (d). Therefore, it is recommended to avoid using the `subpar` package when working with the `i-figured` package before the issue is resolved.
-].
+If you want to create a single figure with multiple subfigures, you can use the `subfigure` function, as shown in @fig:multiple-figures-subfig-numbering-a and @fig:multiple-figures-subfig-numbering-b.
 
 #figure(
   grid(
@@ -280,23 +326,76 @@ If you want to create a single figure with multiple subfigures, you can use the 
 
 === Basic Tables <basic-tables>
 
-Tables should be used to present data that is difficult to describe in text form.
-的编排应简单明了，表达一致，明晰易懂，表文呼应、内容一致。表题置于表
-上，研究生学位论文可以用中、英文两种文字居中排写，中文在上，也可以只用中文。
-表格的编排建议采用国际通行的三线表①。三线表可以使用 booktabs 提供的
-\toprule、\midrule 和 \bottomrule。它们与 longtable 能很好的配合使用。
+Tables contain information placed in a columnar arrangement and are the only illustrations numbered and captioned above.
+
+An example of a simple three line table is shown in @tab:simple.
 
 #figure(
   table(
     columns: 3,
-    ["Header 1", "Header 2", "Header 3"], ["Row 1", "Data 1", "Data 2"], ["Row 2", "Data 3", "Data 4"],
+
+    toprule,
+    table.header(
+      table.cell(
+        colspan: 2,
+      )[Item],
+      table.hline(end: 2, stroke: 0.05em),
+      [],
+      [Animal],
+      [Description],
+      [Price (\$)],
+    ),
+    midrule, [Gnat], [per gram],
+    [13.65], [], [each],
+    [0.01], [Gnu], [stuffed],
+    [92.50], [Emu], [stuffed],
+    [33.33], [Armadillo], [frozen],
+    [8.99], bottomrule,
   ),
-  caption: [Caption for the table],
-) <table-numbering>
+  caption: [An elegant three-line table],
+) <tab:simple>
+
+=== Complex Tables <complex-tables>
+
+_To be implemented_
+
+== Algorithms <algorithms>
+
+_To be implemented_
+
+== Code Blocks <code-blocks>
+
+Though Typst has built-in support for code blocks, it is recommended not to put large blocks of code directly in the thesis document. If necessary, you can use the `codly` package to insert code blocks with syntax highlighting.
+
+```C
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+int main() {
+  pid_t pid;
+  switch ((pid = fork())) {
+    case -1:
+      printf("fork failed\n");
+      break;
+    case 0:
+      /* child calls exec */
+      execl("/bin/ls", "ls", "-l", (char*)0);
+      printf("execl failed\n");
+      break;
+    default:
+      /* parent uses wait to suspend execution until child finishes */
+      wait((int*)0);
+      printf("is completed\n");
+    break;
+  }
+  return 0;
+}
+```
 
 = Conclusion <conclusion>
 
-The conclusion drawn from this research is...
+This chapter concludes the thesis.
 
 #bibliography("./ref.bib", full: true, style: "apa")
 
@@ -304,4 +403,95 @@ The conclusion drawn from this research is...
 
 = Maxwell Equations <maxwell-equations>
 
+
+For the two-dimensional case, the polarization vectors are as follows:
+$
+  bf(E) = E_z(r, theta) hat(bf(z)),
+$
+$
+  bf(H) = H_r(r, theta) hat(bf(r)) + H_theta(r, theta) hat(bold(theta)).
+$ <polarization-vectors>
+
+Taking the curl of @eqt:polarization-vectors:
+$
+  nabla times bf(E) = 1 / r (partial E_z) / (partial theta) hat(bf(r)) - (partial E_z) / (partial r) hat(bold(theta)),
+$
+$
+  nabla times bf(H) = [1 / r partial / (partial r) (r H_theta) - 1 / r (partial H_r) / (partial theta)] hat(bf(z)).
+$
+
+Since $macron(macron(mu))$ is diagonal in cylindrical coordinates, the curl of the electric field $bf(E)$ in Maxwell's equations is:
+$
+  nabla times bf(E) = upright(i) omega bf(B),
+$
+$
+  1 / r (partial E_z) / (partial theta) hat(bf(r)) - (partial E_z) / (partial r) hat(bold(theta)) = upright(i) omega mu_r H_r hat(bf(r)) + upright(i) omega mu_theta H_theta hat(bold(theta)).
+$
+
+Therefore, the components of $bf(H)$ can be written as:
+$
+  H_r = 1 / (ii omega mu_r) 1 / r (partial E_z) / (partial theta),
+$
+$
+  H_theta = 1 / (ii omega mu_theta) 1 / r (partial E_z) / (partial r).
+$
+
+Similarly, since $macron(macron(epsilon.alt))$ is diagonal in cylindrical coordinates, the curl of the magnetic field $bf(H)$ in Maxwell's equations is:
+$
+  nabla times bf(H) = -ii omega bf(D),
+$
+$
+  [1 / r partial / (partial r) (r H_theta) - 1 / r (partial H_r) / (partial theta)] hat(bf(z)) = -ii omega macron(macron(epsilon.alt)) bf(E) = -ii omega epsilon.alt_z E_z hat(bf(z)),
+$
+$
+  1 / r partial / (partial r)(r H_theta) - 1 / r (partial H_r) / (partial theta) = -ii omega epsilon.alt_z E_z.
+$
+
+From this, we obtain the wave equation for $E_z$:
+$
+  1 / (mu_theta epsilon.alt_z) 1 / r partial / (partial r) (r (partial E_z) / (partial r)) + 1 / (mu_r epsilon.alt_z) 1 / r^2 (partial^2 E_z) / (partial theta^2) + omega^2 E_z = 0.
+$
+
 = Flow Charts <flow-charts>
+
+The `fletcher` package provides support for creating diagrams with arrows, including flow charts shown in @fig:flow-chart#footnote()[https://github.com/Jollywatt/typst-fletcher/blob/main/docs/readme-examples/2-flowchart-trap.typ] and state diagrams shown in @fig:state-diagram#footnote()[https://github.com/Jollywatt/typst-fletcher/blob/main/docs/readme-examples/3-state-machine.typ].
+
+#figure(
+  {
+    import fletcher.shapes: diamond
+    diagram(
+      node-stroke: 1pt,
+      node((0, 0), [Start], corner-radius: 2pt, extrude: (0, 3)),
+      edge("-|>"),
+      node(
+        (0, 1),
+        align(center)[
+          Hey, wait,\ this flowchart\ is a trap!
+        ],
+        shape: diamond,
+      ),
+      edge("d,r,u,l", "-|>", [Yes], label-pos: 0.1),
+    )
+  },
+  caption: [Flow chart],
+) <fig:flow-chart>
+
+#figure(
+  {
+    set text(10pt)
+    diagram(
+      node-stroke: .1em,
+      node-fill: gradient.radial(blue.lighten(80%), blue, center: (30%, 20%), radius: 80%),
+      spacing: 4em,
+      edge((-1, 0), "r", "-|>", `open(path)`, label-pos: 0, label-side: center),
+      node((0, 0), `reading`, radius: 2em),
+      edge(`read()`, "-|>"),
+      node((1, 0), `eof`, radius: 2em),
+      edge(`close()`, "-|>"),
+      node((2, 0), `closed`, radius: 2em, extrude: (-2.5, 0)),
+      edge((0, 0), (0, 0), `read()`, "--|>", bend: 130deg),
+      edge((0, 0), (2, 0), `close()`, "-|>", bend: -40deg),
+    )
+  },
+  caption: [State diagram],
+) <fig:state-diagram>
