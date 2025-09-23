@@ -76,7 +76,7 @@ Found a bug, have a suggestion, or want to contribute?
 - [x] Multilingual support (English, Chinese, Portuguese)
 - [x] Modular layouts for cover, declaration, TOC, lists, appendix
 - [x] Customizable metadata and info fields
-- [ ] Full documentation using `tidy`
+- [x] Full documentation using `tidy`
 - [ ] Uploading to Typst Universe as template
 - [ ] Bachelor thesis support
 - [ ] More flexible bibliography and citation styles
@@ -88,14 +88,12 @@ Have a feature request? Please open an issue or discussion!
 
 ## Acknowledgement
 
-This template draws inspiration from the official [Typst documentation](https://typst.app/docs/), the [typst/templates](https://github.com/typst/templates) repository, and the University of Macau's thesis guidelines. Special thanks to the Typst community and all contributors for their support and feedback.
+This template draws inspiration from the [modern-nju-thesis](https://github.com/nju-lug/modern-nju-thesis), the [modern-sjtu-thesis](https://github.com/tzhtaylor/modern-sjtu-thesis) repository, and the University of Macau's thesis guidelines. Special thanks to the [Typst](https://typst.app/) community and all contributors for their support and feedback.
 
 --- 
 
 ## License
 
-The university logo in the `src/assets` folder is the property of the University of Macau and is used here with permission. 
-
-The thesis guidelines in the `documentation/guidelines` folder are also the property of the University of Macau and are used here with permission.
+The university logo in the `src/assets` folder and the thesis guidelines in the `documentation/guidelines` folder are the property of the University of Macau.
 
 The rest of the project is licensed under the [MIT License](LICENSE).
