@@ -1,3 +1,4 @@
+#import "@preview/hallon:0.1.3" as hallon
 #import "@preview/i-figured:0.2.4"
 #import "@preview/numbly:0.1.0": numbly
 #import "@preview/theorion:0.4.0": *
