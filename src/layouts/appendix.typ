@@ -38,6 +38,12 @@
   // Set appendix supplement for identification in doc.typ
   show heading.where(level: 1): set heading(supplement: [Appendix])
 
+  // Apply subfigure styles.
+  show: hallon.style-figures.with(
+    heading-levels: 1,
+    heading-numbering: "A",
+  )
+
   // i-figured settings
   show heading: i-figured.reset-counters
   show math.equation: i-figured.show-equation.with(numbering: "(A.1)")

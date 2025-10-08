@@ -1,3 +1,4 @@
+#import "@preview/hallon:0.1.3" as hallon
 #import "@preview/i-figured:0.2.4"
 #import "@preview/numbly:0.1.0": numbly
 #import "@preview/theorion:0.4.0": *
@@ -36,6 +37,12 @@
   ))
   // Set chapter supplement for identification in doc.typ
   show heading.where(level: 1): set heading(supplement: [Chapter])
+
+  // Apply subfigure styles.
+  show: hallon.style-figures.with(
+    heading-levels: 1,
+    heading-numbering: "1",
+  )
 
   // i-figured settings
   show heading: i-figured.reset-counters
