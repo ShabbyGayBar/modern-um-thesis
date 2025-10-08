@@ -220,6 +220,10 @@ $
 
 == Notation Of References <notation-of-references>
 
+When citing literature, give as much information on the page where the citation is made as is consistent with publication practice in the field of research. 
+
+A Bibliography or List of References is a comprehensive list of all sources used by the author and is required at the end of each thesis, appearing immediately after the text. For master's thesis, the Faculty will accept any recognized format. Whereas for doctoral thesis, either the MLA@mla or APA@apa style should be used.
+
 = Illustrations <illustrations>
 
 The term _illustrations_ refers to informational material that illustrates and enhances the text. Figures, Maps, and tables are all examples of illustrations and are either inserted throughout the text, appearing as soon as possible after the references to them have been made, or grouped at the end of each chapter. Whichever method you choose, you must use it consistently for all the figures, tables, or other illustrations included.
