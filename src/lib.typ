@@ -1,5 +1,5 @@
 #import "@preview/hallon:0.1.3" as hallon: subfigure
-#import "@preview/theorion:0.4.0": *
+#import "@preview/theorion:0.4.1": *
 #import "@preview/unify:0.7.1": *
 #import "layouts/appendix.typ": appendix
 #import "layouts/doc.typ": doc
