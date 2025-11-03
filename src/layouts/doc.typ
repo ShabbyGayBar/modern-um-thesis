@@ -1,5 +1,5 @@
 #import "@preview/cuti:0.3.0": show-cn-fakebold
-#import "@preview/itemize:0.1.2" as el
+#import "@preview/itemize:0.2.0" as el
 #import "@preview/numbly:0.1.0": numbly
 #import "../utils/convert.typ": *
 #import "../utils/numbering.typ": *
