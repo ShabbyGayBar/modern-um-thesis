@@ -22,6 +22,10 @@
   ///
   /// -> dictionary
   info: (:),
+  /// Thesis keywords (only listed in metadata)
+  /// 
+  /// -> list of string
+  keywords: (),
   /// -> content
   body,
 ) = {
@@ -75,4 +79,9 @@
 
     body
   }
+
+  set document(
+    description: body,
+    keywords: keywords,
+  )
 }

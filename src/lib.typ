@@ -96,6 +96,7 @@
     doc: (..args) => {
       doc(
         ..args,
+        date: date,
         doctype: doctype,
         double-sided: double-sided,
         print: print,

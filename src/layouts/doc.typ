@@ -8,6 +8,10 @@
 ///
 /// -> content
 #let doc(
+  /// Date of submission
+  ///
+  /// -> datetime
+  date: datetime.today(),
   /// Type of thesis
   ///
   /// -> "doctor" | "master" | "bachelor"
@@ -157,6 +161,7 @@
     } else {
       to-str(info.author-en)
     },
+    date: date,
   )
 
   body

@@ -74,7 +74,9 @@
   // email: none, // For master thesis
 )
 
-#abstract()[
+#abstract(
+  keywords: ("thesis", "format", "standardization", "template", "Typst", "University of Macau"),
+)[
   The Faculty requires an Abstract for a master's or doctoral thesis.  It must be in both submitted copies and must follow the format given in the sample. The title of the thesis must appear exactly as it does on the Title Page. The name of your Supervisor must appear in full with his or her appropriate academic title (no professional titles may be used) and the name of the program authorized to offer the degree.
 
   The text of the Abstract must be one-and-one-half or double-spaced and must conform to margin requirements.
@@ -220,7 +222,7 @@ $
 
 == Notation Of References <notation-of-references>
 
-When citing literature, give as much information on the page where the citation is made as is consistent with publication practice in the field of research. 
+When citing literature, give as much information on the page where the citation is made as is consistent with publication practice in the field of research.
 
 A Bibliography or List of References is a comprehensive list of all sources used by the author and is required at the end of each thesis, appearing immediately after the text. For master's thesis, the Faculty will accept any recognized format. Whereas for doctoral thesis, either the MLA@mla or APA@apa style should be used.
 
