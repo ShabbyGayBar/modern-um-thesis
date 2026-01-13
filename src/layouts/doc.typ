@@ -1,4 +1,4 @@
-#import "@preview/cuti:0.3.0": show-cn-fakebold
+#import "@preview/cuti:0.4.0": show-cn-fakebold
 #import "@preview/itemize:0.2.0" as el
 #import "@preview/numbly:0.1.0": numbly
 #import "../utils/convert.typ": *

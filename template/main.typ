@@ -5,7 +5,7 @@
 #import "@preview/cetz:0.4.2": canvas, draw
 #import "@preview/cetz-plot:0.1.3": plot
 #import "@preview/codly:1.3.0": *
-#import "@preview/codly-languages:0.1.8": *
+#import "@preview/codly-languages:0.1.10": *
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, edge, node
 #import "@preview/wordometer:0.1.5": total-words, word-count
 
