@@ -23,12 +23,22 @@
   /// -> dictionary
   info: (:),
   /// Thesis keywords (only listed in metadata)
-  /// 
+  ///
   /// -> list of string
   keywords: (),
   /// -> content
   body,
 ) = {
+  let keywords-str = {
+    if lang == "en" {
+      [*Keywords:* #keywords.join(", ")]
+    } else if lang == "zh" {
+      [*關鍵詞：* #keywords.join("、")]
+    } else if lang == "pt" {
+      [*Palavras-chave:* #keywords.join(", ")]
+    }
+  }
+
   if doctype == "master" {
     set page(margin: (top: 1.5in, bottom: 1.2in, left: 1.5in, right: 1.5in))
     set par(leading: 0.75em, spacing: 1.33em, justify: true)
@@ -63,6 +73,8 @@
       {
         set align(left)
         body
+        linebreak()
+        keywords-str
       },
     )
 
@@ -78,6 +90,8 @@
       }]
 
     body
+    linebreak()
+    keywords-str
   }
 
   set document(
