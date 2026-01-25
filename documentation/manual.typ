@@ -71,6 +71,15 @@ This is the documentation manual for the `modern-um-thesis` Typst template, gene
 = Pages
 
 #let docs = tidy.parse-module(
+  read("../src/pages/cover-ms.typ"),
+)
+#tidy.show-module(
+  docs,
+  first-heading-level: 1,
+  show-outline: false,
+)
+
+#let docs = tidy.parse-module(
   read("../src/pages/cover-phd.typ"),
 )
 #tidy.show-module(
@@ -80,7 +89,91 @@ This is the documentation manual for the `modern-um-thesis` Typst template, gene
 )
 
 #let docs = tidy.parse-module(
+  read("../src/pages/declare-ms.typ"),
+)
+#tidy.show-module(
+  docs,
+  first-heading-level: 1,
+  show-outline: false,
+)
+
+#let docs = tidy.parse-module(
   read("../src/pages/declare-phd.typ"),
+)
+#tidy.show-module(
+  docs,
+  first-heading-level: 1,
+  show-outline: false,
+)
+
+#let docs = tidy.parse-module(
+  read("../src/pages/abstract.typ"),
+)
+#tidy.show-module(
+  docs,
+  first-heading-level: 1,
+  show-outline: false,
+)
+
+#let docs = tidy.parse-module(
+  read("../src/pages/outline.typ"),
+)
+#tidy.show-module(
+  docs,
+  first-heading-level: 1,
+  show-outline: false,
+)
+
+= Public Utility Functions
+
+This section documents utility functions used in the `modern-um-thesis` template.
+
+#let docs = tidy.parse-module(
+  read("../src/utils/symbols.typ"),
+)
+#tidy.show-module(
+  docs,
+  first-heading-level: 1,
+  show-outline: false,
+)
+
+#let docs = tidy.parse-module(
+  read("../src/utils/line.typ"),
+)
+#tidy.show-module(
+  docs,
+  first-heading-level: 1,
+  show-outline: false,
+)
+
+These functions are defined in the `/src/utils` folder and are callable by the end-user.
+
+= Private Utility Functions
+
+This section documents utility functions used in the `modern-um-thesis` template.
+
+These functions are defined in the `/src/utils` folder and are hidden from the end-user. They are documented here for development purposes.
+
+#let docs = tidy.parse-module(
+  read("../src/utils/convert.typ"),
+)
+#tidy.show-module(
+  docs,
+  first-heading-level: 1,
+  show-outline: false,
+)
+
+#let docs = tidy.parse-module(
+  read("../src/utils/numbering.typ"),
+)
+#tidy.show-module(
+  docs,
+  first-heading-level: 1,
+  show-outline: false,
+)
+
+#let docs = tidy.parse-module(
+  read("../src/utils/page.typ"),
 )
 #tidy.show-module(
   docs,
