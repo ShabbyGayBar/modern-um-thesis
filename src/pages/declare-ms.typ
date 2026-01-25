@@ -31,8 +31,6 @@
   set text(size: 12pt)
   set align(left)
 
-  let fill(width) = box(width: width, repeat(sym.space.nobreak))
-
   [\ \ \ \ In presenting this thesis in partial fulfillment of the requirements for a Master's degree at the University of Macau, I agree that the Library and the Faculty of Science and Technology shall make its copies freely available for inspection. However, reproduction of this thesis for any purposes or by any means shall not be allowed without my written permission.    Authorization is sought by contacting the author at\ \
 
     #h(1cm)
@@ -48,7 +46,7 @@
     #h(7.62cm)
     Signature: #uline()\ \
     #h(7.62cm)
-    Date: #underline(if date == none { fill(1fr) } else { fill(1fr) + date.display() + fill(1fr) })]
+    Date: #underline(if date == none { fill() } else { fill() + date.display() + fill() })]
 
   pagebreak()
 }
