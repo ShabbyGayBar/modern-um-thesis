@@ -23,15 +23,15 @@
   /// -> str | content
   email: none,
 ) = {
-  set page(margin: (top: 1.5in, bottom: 1.2in, left: 1.5in, right: 1.5in))
-  set par(leading: 0.17em, spacing: 0.17em, justify: true)
+  set page(margin: (top: 1.5in, left: 1.5in, right: 1.5in))
+  set par(leading: 0.15em, spacing: 0.15em, justify: true)
   set align(center)
   set pagebreak(weak: true, to: if double-sided { "odd" })
 
   set text(size: 12pt)
   set align(left)
 
-  [\ \ \ \ In presenting this thesis in partial fulfillment of the requirements for a Master's degree at the University of Macau, I agree that the Library and the Faculty of Science and Technology shall make its copies freely available for inspection. However, reproduction of this thesis for any purposes or by any means shall not be allowed without my written permission.    Authorization is sought by contacting the author at\ \
+  [#v(54pt) In presenting this thesis in partial fulfillment of the requirements for a Master's degree at the University of Macau, I agree that the Library and the Faculty of Science and Technology shall make its copies freely available for inspection. However, reproduction of this thesis for any purposes or by any means shall not be allowed without my written permission.    Authorization is sought by contacting the author at\ \
 
     #h(1cm)
     Address: #address\ \

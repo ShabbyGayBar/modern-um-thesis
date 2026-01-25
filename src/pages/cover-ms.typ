@@ -20,11 +20,11 @@
   info: (:),
 ) = {
   set page(
-    margin: (top: 1.5in, bottom: 1.2in, left: 1.5in, right: 1.5in),
+    margin: (top: 1.5in, bottom: 1in),
     header: none,
     footer: none,
   )
-  set par(leading: 0.17em, spacing: 0.17em, justify: true)
+  set par(leading: 0.15em, spacing: 0.15em, justify: true)
   set align(center)
   set pagebreak(weak: true, to: if double-sided { "odd" })
 
@@ -32,39 +32,39 @@
   // Cover page //
   ////////////////
   set text(size: 14pt)
+  page(
+    margin: (left: 1in, right: 1in),
+    grid(
+      columns: 1,
+      gutter: (
+        0.66em + 39pt,
+        0.15em + 21pt,
+        0.15em + 28pt,
+        1.29em + 140pt,
+        0.66em + 142pt,
+        0.66em + 20pt,
+        0em,
+        0.15em,
+      ),
+      align: center + horizon,
 
-  grid(
-    columns: 1,
-    gutter: (
-      0.75em + 39pt,
-      0.17em + 21pt,
-      0.17em + 28pt,
-      1.33em + 140pt,
-      0.75em + 140pt,
-      0.75em + 18pt,
-      0.17em,
+      v(7pt),
+      // Title
+      strong(info.title-en),
+      text(size: 12pt)[by],
+      // Name
+      strong(info.author-en),
+      // Degree Title
+      strong(info.degree-en),
+      // Year
+      [#datetime.today().year()],
+      // University Logo
+      image("../assets/UM-Logo_Monotone.png", height: 77pt),
+      // Academic Unit
+      strong(info.academic-unit-en),
+      [*University of Macau*],
     ),
-    align: center + top,
-
-    // Empty line
-    text(size: 10pt)[\ ],
-    // Title
-    info.title-en,
-    text(size: 12pt)[by],
-    // Name
-    info.author-en,
-    // Degree Title
-    info.degree-en,
-    // Year
-    [#datetime.today().year()],
-    // University Logo
-    image("../assets/UM-Logo_Monotone.png", height: 79.1pt),
-    // Academic Unit
-    info.academic-unit-en,
-    [University of Macau],
   )
-
-  pagebreak()
 
   ////////////////
   // Title page //
@@ -74,16 +74,16 @@
   grid(
     columns: 1,
     gutter: (
-      0.75em + 39pt,
-      0.17em + 21pt,
-      1.33em,
-      1.33em,
-      0.17em,
-      0.17em + 28pt,
-      0.17em + 28pt,
-      0.17em,
-      0.17em + 28pt,
-      0.75em + 28pt,
+      0.66em + 39pt,
+      0.15em + 21pt,
+      1.29em,
+      1.29em,
+      0.15em,
+      0.15em + 28pt,
+      0.15em + 28pt,
+      0.15em,
+      0.15em + 28pt,
+      0.66em + 28pt,
       0em,
     ),
     align: center + top,
@@ -106,28 +106,33 @@
     // Expected Degree Awarding Year
     [#date.year()],
     // Approval Signature
-    [\ \ \ \ \ \
+    [#v(84pt)
       #grid(
-        columns: 2,
+        columns: 3,
         rows: 7,
-        row-gutter: (0.17em, 1.33em),
+        row-gutter: (0.15em, 1.29em),
         align: (center + top),
 
         grid.cell(
           x: 0,
           y: 0,
           colspan: 1,
-          rowspan: 6,
+          rowspan: 5,
         )[Approved by],
         uline(),
+        grid.cell(
+          x: 2,
+          y: 0,
+          colspan: 1,
+          rowspan: 7,
+        )[#h(0.6in)],
         [Supervisor],
-        uline(),
         uline(),
         uline(),
         uline(),
         grid.cell(
           x: 0,
-          y: 6,
+          y: 5,
           colspan: 2,
           rowspan: 1,
         )[Date#uline()],

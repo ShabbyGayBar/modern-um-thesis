@@ -40,8 +40,8 @@
   }
 
   if doctype == "master" {
-    set page(margin: (top: 1.5in, bottom: 1.2in, left: 1.5in, right: 1.5in))
-    set par(leading: 0.75em, spacing: 1.33em, justify: true)
+    set page(margin: (top: 1.5in))
+    set par(leading: 0.15em, spacing: 1.29em, justify: true)
     set align(center)
     set pagebreak(weak: true, to: if double-sided { "odd" })
     set text(size: 12pt)
@@ -49,18 +49,18 @@
     grid(
       columns: 1,
       gutter: (
-        0.17em + 12pt,
-        1.33em + 18pt,
-        1.33em + 6pt,
-        0.17em + 14pt,
-        1.33em,
-        0.17em,
-        28pt,
+        0.15em + 12pt,
+        1.29*14pt + 18pt,
+        1.29*14pt + 6pt,
+        0.15em + 14pt,
+        1.29em,
+        0.15em,
+        0.15em + 28pt,
       ),
       align: center + top,
 
       // Empty line
-      [\ ],
+      v(11pt),
       text(size: 14pt)[University of Macau],
       text(size: 14pt)[Abstract],
       // Thesis Title
@@ -71,9 +71,10 @@
       // Degree Title
       info.degree-en,
       {
+        set par(leading: 0.66em)
         set align(left)
         body
-        linebreak()
+        parbreak()
         keywords-str
       },
     )
@@ -90,7 +91,7 @@
       }]
 
     body
-    linebreak()
+    parbreak()
     keywords-str
   }
 

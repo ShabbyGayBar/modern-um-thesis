@@ -27,7 +27,7 @@
     header: none,
     footer: none,
   )
-  set par(leading: 0.17em, spacing: 0.17em, justify: true)
+  set par(leading: 0.15em, spacing: 0.15em, justify: true)
   set align(center)
   set pagebreak(weak: true, to: if double-sided { "odd" })
 
@@ -39,11 +39,11 @@
     columns: 1,
     gutter: (
       1fr,
-      0.17em + 28pt,
-      1.33em + 140pt,
-      0.75em + 140pt,
-      0.75em + 18pt,
-      0.17em,
+      0.15em + 28pt,
+      1.29em + 140pt,
+      0.66em + 140pt,
+      0.66em + 18pt,
+      0.15em,
     ),
     align: center + top,
 

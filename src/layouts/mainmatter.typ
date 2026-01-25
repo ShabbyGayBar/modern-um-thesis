@@ -27,6 +27,7 @@
   set page(
     header: context {
       if is-chapter-page() { none } else { h(1fr) + counter(page).display() + h(1fr) }
+      v(8pt)
     },
     footer: none,
     numbering: none,

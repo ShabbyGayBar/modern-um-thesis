@@ -45,11 +45,11 @@
     }
   } else if doctype == "master" {
     if not print {
-      (top: 1in, bottom: 1in, left: 1in, right: 1in)
+      (top: 1.5in + 22pt, bottom: 1in, left: 1in, right: 1in)
     } else if double-sided {
-      (top: 1in, bottom: 1in, inside: 1.5in, outside: 1in)
+      (top: 1.5in + 22pt, bottom: 1in, inside: 1.5in, outside: 1in)
     } else {
-      (top: 1in, bottom: 1in, left: 1.5in, right: 1in)
+      (top: 1.5in + 22pt, bottom: 1.71in, left: 1.5in, right: 1in)
     }
   } else if doctype == "bachelor" {
     if not print {
@@ -69,11 +69,11 @@
   )
   set par(
     justify: true,
-    // 0.17em: single line spacing in MS Word
-    // 0.75em: 1.5 line spacing in MS Word
-    // 1.33em: double line spacing in MS Word
-    leading: if doctype == "doctor" { 1.33em } else { 0.75em },
-    spacing: 1.33em,
+    // 0.15em: single line spacing in MS Word
+    // 0.66em: 1.5 line spacing in MS Word
+    // 1.29em: double line spacing in MS Word
+    leading: if doctype == "doctor" { 1.29em } else { 0.66em },
+    spacing: 1.29em,
     // Enable first-line indent for Chinese
     first-line-indent: if lang == "zh" { (amount: 2em, all: true) } else { (amount: 0pt, all: false) },
   )
@@ -88,9 +88,14 @@
       body
     }
   }
+  // Remove strong text from headings
+  show heading: set text(weight: "regular") if doctype == "master"
   // Double-line spacing for headings
-  show heading: set block(above: 1.33em, below: 0.75em)
-  show heading.where(level: 1): set block(below: 36pt)
+  show heading: set block(above: 1.29em, below: 0.66em)
+  show heading.where(level: 1): set block(below: 46pt)
+  show heading.where(level: 2): set block(above: 1.29em + 18pt, below: 0.66em + 6pt)
+  show heading.where(level: 3): set block(above: 1.29em + 12pt, below: 0.66em + 3pt)
+  show heading.where(level: 4): set block(above: 1.29em + 6pt, below: 0.66em + 6pt) if doctype == "master" // Weird setting
   // Change bibliography title to "References"
   set bibliography(title: "References") if doctype == "doctor"
 
@@ -109,7 +114,7 @@
   // Figure captions settings
   show figure.caption: set text(weight: "bold")
   // Decrease spacing in figure captions
-  show figure.caption: set par(leading: 0.17em, justify: false)
+  show figure.caption: set par(leading: 0.15em, justify: false)
   // Place table and algorithm captions above
   show figure.where(kind: table): set figure.caption(position: top)
   show figure.where(kind: "algorithm"): set figure.caption(position: top)
@@ -122,7 +127,7 @@
 
   set table(stroke: none)
   // Decrease spacing in table contents
-  show table: set par(leading: 0.17em, spacing: 0.75em)
+  show table: set par(leading: 0.15em, spacing: 0.66em)
 
   // List settings
 
@@ -130,9 +135,9 @@
   show ref: el.ref-enum
   show: el.default-enum-list
   // Decrease spacing in table contents
-  show footnote.entry: set par(leading: 0.17em, spacing: 0.75em)
-  show list: set par(leading: 0.17em)
-  show enum: set par(leading: 0.17em)
+  show footnote.entry: set par(leading: 0.15em, spacing: 0.66em)
+  show list: set par(leading: 0.15em)
+  show enum: set par(leading: 0.15em)
 
   set math.equation(number-align: end + bottom, supplement: none)
 
