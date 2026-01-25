@@ -22,7 +22,11 @@
   info: (:),
 ) = {
   // Normal margins for cover, title page and author's right page
-  set page(margin: (top: 1in, bottom: 1in, left: 1in, right: 1in))
+  set page(
+    margin: (top: 1in, bottom: 1in, left: 1in, right: 1in),
+    header: none,
+    footer: none,
+  )
   set par(leading: 0.17em, spacing: 0.17em, justify: true)
   set align(center)
   set pagebreak(weak: true, to: if double-sided { "odd" })

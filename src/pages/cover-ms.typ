@@ -19,7 +19,11 @@
   /// -> dictionary
   info: (:),
 ) = {
-  set page(margin: (top: 1.5in, bottom: 1.2in, left: 1.5in, right: 1.5in))
+  set page(
+    margin: (top: 1.5in, bottom: 1.2in, left: 1.5in, right: 1.5in),
+    header: none,
+    footer: none,
+  )
   set par(leading: 0.17em, spacing: 0.17em, justify: true)
   set align(center)
   set pagebreak(weak: true, to: if double-sided { "odd" })
