@@ -25,34 +25,27 @@ Typst is a next-generation typesetting system designed for simplicity, speed, an
 
 ---
 
-## Getting Started
+## Usage
 
-### 1. Install Typst
+There are two ways to use this template in your Typst project.
 
-You can use Typst either via the web app or by installing it locally:
+### Online via Typst Webapp
 
-- **Web App**: [https://typst.app/](https://typst.app/) (no installation required)
-- **Local Installation:**
-	- Download from [Typst Releases](https://github.com/typst/typst/releases)
-	- Or install via package manager (e.g., `brew install typst` on macOS)
-	- For Windows: Download the latest `.zip` or `.exe` from the releases page and add Typst to your PATH
+Go to [the template's homepage on Typst Web App](https://typst.app/universe/package/modern-um-thesis) and click on `Create project in app`.
 
-For more details, see the `installation` section of the [official Typst Github Repo](https://github.com/typst/typst).
+You can then start editing your document directly in the web interface.
 
-### 2. Setup & Use This Template
+### Locally via Typst Universe
 
-+ Open the project folder in Typst (web or local editor).
-+ Add the following code to your document:
+Before proceeding, ensure you have Typst installed on your machine. You can download it from the [official Typst website](https://typst.app/open-source/#download) or install it via a package manager.
 
-```typst
-#import "@preview/modern-um-thesis:0.1.1": *
+In your working directory, run:
+
+```bash
+typst init @preview/modern-um-thesis:0.1.1 my-thesis
 ```
 
-or 
-+ Click `start with template` if using Typst web app.
-
-+ Fill in your thesis information as in `template/main.typ` line 12-62.
-+ Compile to PDF using Typst.
+This will create a new Typst project with the `modern-um-thesis` template set up under the directory `my-thesis`.
 
 ---
 
@@ -60,7 +53,7 @@ or
 
 Found a bug, have a suggestion, or want to contribute?
 
-- Open an issue or pull request on [GitHub](https://github.com/ShabbyGayBar/modern-um-thesis)
+- Open an issue or pull request on [GitHub](https://github.com/ShabbyGayBar/modern-um-thesis/issues).
 - For template-specific questions, please include your Typst version and a minimal code example.
 
 ---
@@ -71,15 +64,39 @@ Found a bug, have a suggestion, or want to contribute?
 
 ## Roadmap
 
-- [x] Support for Doctoral and Master's thesis layouts
-- [x] Multilingual support (English, Chinese, Portuguese)
-- [x] Modular layouts for cover, declaration, TOC, lists, appendix
-- [x] Customizable metadata and info fields
-- [x] Full documentation using `tidy`
-- [ ] Uploading to Typst Universe as template
-- [ ] Bachelor thesis support
-- [ ] More flexible bibliography and citation styles
-- [ ] More sample content and usage examples
+- Global Settings
+  - [x] LaTeX-style `documentclass` options for easy configuration
+  - [ ] Blind review mode, replace personal info with black stripes, and hide acknowledgements
+  - [x] Print mode, add margins to binding side
+  - [x] Double sided mode, adjust margins for duplex printing
+- Template Features
+  - [x] Doctoral thesis
+    - [x] Cover page
+    - [x] Declaration page
+    - [x] Abstract page
+    - [x] Table of contents
+    - [x] List of figures/tables
+    - [x] References
+    - [x] Appendices
+    - Language Support
+      - [x] English
+      - [x] Chinese
+      - [x] Portuguese
+  - [x] Master's thesis
+    - [x] Cover page
+    - [x] Declaration page
+    - [x] Abstract page
+    - [x] Table of contents
+    - [x] List of figures/tables
+    - [x] References
+    - [x] Appendices
+  - [ ] Bachelor's thesis
+  - [x] Symbol abbreviations for mathematical notation (i, e, pi, etc.)
+  - [x] Lines for three line tables
+- Documentation
+  - [x] `main.typ` as template usage guide
+  - [x] Documentation generated with `tidy`
+  - [ ] Detailed documentation on correspondance with UM thesis guidelines
 
 Have a feature request? Please open an issue or discussion!
 
