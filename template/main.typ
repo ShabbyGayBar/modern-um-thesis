@@ -260,7 +260,7 @@ A simple example of inserting a single figure is shown in @fig:single-figure.
       {
         plot.add(points, mark: "square", style: style)
         plot.annotate(
-          content((2.4, 4000), $q_v=(sigma omega^2 abs(bf(A))^2)/2$),
+          content((2.4, 4000), $q_v=(sigma omega^2 abs(bold(A))^2)/2$),
         )
       },
     )
@@ -413,29 +413,29 @@ This chapter concludes the thesis.
 
 For the two-dimensional case, the polarization vectors are as follows:
 $
-  bf(E) = E_z(r, theta) hat(bf(z)),
+  bold(E) = E_z(r, theta) hat(bold(z)),
 $
 $
-  bf(H) = H_r(r, theta) hat(bf(r)) + H_theta(r, theta) hat(bold(theta)).
+  bold(H) = H_r(r, theta) hat(bold(r)) + H_theta(r, theta) hat(bold(theta)).
 $ <polarization-vectors>
 
 Taking the curl of @eqt:polarization-vectors:
 $
-  nabla times bf(E) = 1 / r (partial E_z) / (partial theta) hat(bf(r)) - (partial E_z) / (partial r) hat(bold(theta)),
+  nabla times bold(E) = 1 / r (partial E_z) / (partial theta) hat(bold(r)) - (partial E_z) / (partial r) hat(bold(theta)),
 $
 $
-  nabla times bf(H) = [1 / r partial / (partial r) (r H_theta) - 1 / r (partial H_r) / (partial theta)] hat(bf(z)).
-$
-
-Since $macron(macron(mu))$ is diagonal in cylindrical coordinates, the curl of the electric field $bf(E)$ in Maxwell's equations is:
-$
-  nabla times bf(E) = upright(i) omega bf(B),
-$
-$
-  1 / r (partial E_z) / (partial theta) hat(bf(r)) - (partial E_z) / (partial r) hat(bold(theta)) = upright(i) omega mu_r H_r hat(bf(r)) + upright(i) omega mu_theta H_theta hat(bold(theta)).
+  nabla times bold(H) = [1 / r partial / (partial r) (r H_theta) - 1 / r (partial H_r) / (partial theta)] hat(bold(z)).
 $
 
-Therefore, the components of $bf(H)$ can be written as:
+Since $macron(macron(mu))$ is diagonal in cylindrical coordinates, the curl of the electric field $bold(E)$ in Maxwell's equations is:
+$
+  nabla times bold(E) = upright(i) omega bold(B),
+$
+$
+  1 / r (partial E_z) / (partial theta) hat(bold(r)) - (partial E_z) / (partial r) hat(bold(theta)) = upright(i) omega mu_r H_r hat(bold(r)) + upright(i) omega mu_theta H_theta hat(bold(theta)).
+$
+
+Therefore, the components of $bold(H)$ can be written as:
 $
   H_r = 1 / (ii omega mu_r) 1 / r (partial E_z) / (partial theta),
 $
@@ -443,12 +443,12 @@ $
   H_theta = 1 / (ii omega mu_theta) 1 / r (partial E_z) / (partial r).
 $
 
-Similarly, since $macron(macron(epsilon.alt))$ is diagonal in cylindrical coordinates, the curl of the magnetic field $bf(H)$ in Maxwell's equations is:
+Similarly, since $macron(macron(epsilon.alt))$ is diagonal in cylindrical coordinates, the curl of the magnetic field $bold(H)$ in Maxwell's equations is:
 $
-  nabla times bf(H) = -ii omega bf(D),
+  nabla times bold(H) = -ii omega bold(D),
 $
 $
-  [1 / r partial / (partial r) (r H_theta) - 1 / r (partial H_r) / (partial theta)] hat(bf(z)) = -ii omega macron(macron(epsilon.alt)) bf(E) = -ii omega epsilon.alt_z E_z hat(bf(z)),
+  [1 / r partial / (partial r) (r H_theta) - 1 / r (partial H_r) / (partial theta)] hat(bold(z)) = -ii omega macron(macron(epsilon.alt)) bold(E) = -ii omega epsilon.alt_z E_z hat(bold(z)),
 $
 $
   1 / r partial / (partial r)(r H_theta) - 1 / r (partial H_r) / (partial theta) = -ii omega epsilon.alt_z E_z.
