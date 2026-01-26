@@ -4,7 +4,7 @@
     it.element.location(),
     it.indented(it.prefix(), it.inner()),
   )
-
+  show outline: set heading(outlined: true)
   outline(
     target: figure.where(kind: image),
     title: if lang == "zh" [插图目录] else if lang == "pt" [Lista de Figuras] else [List of Figures],
@@ -17,7 +17,7 @@
     it.element.location(),
     it.indented(it.prefix(), it.inner()),
   )
-
+  show outline: set heading(outlined: true)
   outline(
     target: figure.where(kind: table),
     title: if lang == "zh" [表格目录] else if lang == "pt" [Lista de Tabelas] else [List of Tables],
@@ -30,7 +30,7 @@
     it.element.location(),
     it.indented(it.prefix(), it.inner()),
   )
-
+  show outline: set heading(outlined: true)
   outline(
     target: figure.where(kind: image),
     title: if lang == "zh" [插图目录] else if lang == "pt" [Lista de Tabelas e Figuras] else [List of Tables and Figures],
