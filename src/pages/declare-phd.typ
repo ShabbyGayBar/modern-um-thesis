@@ -1,4 +1,7 @@
 /// Generate declaration page for PhD thesis
+/// 
+/// You can simply call `#declare()` instead of `#declare-phd()`.
+/// The document will automatically choose the correct declaration based on the `doctype` parameter.
 ///
 /// -> content
 #let declare-phd(
@@ -11,7 +14,7 @@
   /// Enable double-sided printing
   ///
   /// -> bool
-  double-sided: false,
+  double-sided: true,
 ) = {
   pagebreak(
     weak: true,
@@ -26,7 +29,7 @@
     #if lang == "en" {
       [Declaration]
     } else if lang == "zh" {
-      [声明]
+      [聲明]
     } else if lang == "pt" {
       [Declaração]
     }]

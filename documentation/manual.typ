@@ -128,6 +128,8 @@ This is the documentation manual for the `modern-um-thesis` Typst template, gene
 
 This section documents utility functions used in the `modern-um-thesis` template.
 
+These functions are defined in the `/src/utils` folder and are callable by the end-user.
+
 #let docs = tidy.parse-module(
   read("../src/utils/symbols.typ"),
 )
@@ -145,8 +147,6 @@ This section documents utility functions used in the `modern-um-thesis` template
   first-heading-level: 1,
   show-outline: false,
 )
-
-These functions are defined in the `/src/utils` folder and are callable by the end-user.
 
 = Private Utility Functions
 

@@ -3,6 +3,9 @@
 /// Generate cover page for Master's thesis
 ///
 /// This is a replica of the thesis cover .doc file provided by University of Macau
+/// 
+/// You can simply call `#cover()` instead of `#cover-ms()`.
+/// The document will automatically choose the correct cover based on the `doctype` parameter.
 ///
 /// -> content
 #let cover-ms(

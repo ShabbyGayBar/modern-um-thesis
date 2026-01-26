@@ -2,6 +2,9 @@
 
 /// Generate Quote Slip (declaration page) for Master thesis
 ///
+/// You can simply call `#declare()` instead of `#declare-ms()`.
+/// The document will automatically choose the correct declaration based on the `doctype` parameter.
+///
 /// -> content
 #let declare-ms(
   /// -> datetime
@@ -13,7 +16,7 @@
   /// Enable double-sided printing
   ///
   /// -> bool
-  double-sided: false,
+  double-sided: true,
   /// -> str | content
   address: none,
   /// -> str | content

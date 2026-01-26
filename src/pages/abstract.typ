@@ -2,7 +2,7 @@
 ///
 /// When `doctype` is "master", this is a replica of the thesis abstract .doc file provided by University of Macau
 ///
-/// When `doctype` is "doctor" or "bachelor", this is merely a header
+/// When `doctype` is "doctor" or "bachelor", this is merely a heading.
 ///
 /// -> content
 #let abstract(
@@ -22,7 +22,7 @@
   ///
   /// -> dictionary
   info: (:),
-  /// Thesis keywords (only listed in metadata)
+  /// Thesis keywords (Listed in metadata and after abstract)
   ///
   /// -> list of string
   keywords: (),

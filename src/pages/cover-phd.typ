@@ -1,6 +1,9 @@
 #import "../utils/convert.typ": format-name
 
 /// Generate cover page for PhD thesis
+/// 
+/// You can simply call `#cover()` instead of `#cover-phd()`.
+/// The document will automatically choose the correct cover based on the `doctype` parameter.
 ///
 /// -> content
 #let cover-phd(
@@ -23,7 +26,7 @@
 ) = {
   // Normal margins for cover, title page and author's right page
   set page(
-    margin: (top: 1in, bottom: 1in, left: 1in, right: 1in),
+    margin: auto,
     header: none,
     footer: none,
   )
@@ -80,11 +83,11 @@
     ),
     // Academic Unit
     if lang == "en" {
-      [#info.academic-unit-en\ \ University of Macau\ \ ]
+      [#info.academic-unit-en\ \ \ University of Macau\ \ \ ]
     } else if lang == "zh" {
-      [#info.academic-unit-zh\ #info.academic-unit-en\ 澳門大學\ University of Macau]
+      [#info.academic-unit-zh\ #info.academic-unit-en\ \ 澳門大學\ University of Macau]
     } else if lang == "pt" {
-      [#info.academic-unit-pt\ #info.academic-unit-en\ Universidade de Macau\ University of Macau]
+      [#info.academic-unit-pt\ #info.academic-unit-en\ \ Universidade de Macau\ University of Macau]
     },
   )
 
@@ -176,7 +179,7 @@
   /////////////////////////
   // Author's right page //
   /////////////////////////
-  v(10cm - 1in) // 10 cm below top of page, accounting for page margin
+  v(10cm - 2.5cm) // 10 cm below top of page, accounting for page margin
   if lang == "pt" {
     [#date.year() por\ #format-name(info.author-pt)]
   } else {

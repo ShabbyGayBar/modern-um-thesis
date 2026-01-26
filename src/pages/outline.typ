@@ -1,4 +1,12 @@
-#let outline-image(lang: "en") = {
+/// List of Figures
+///
+/// -> content
+#let outline-image(
+  /// Language of the thesis
+  ///
+  /// -> "en" | "zh" | "pt"
+  lang: "en",
+) = {
   // Restore default formatting for titles
   show outline.entry: it => link(
     it.element.location(),
@@ -7,11 +15,19 @@
   show outline: set heading(outlined: true)
   outline(
     target: figure.where(kind: image),
-    title: if lang == "zh" [插图目录] else if lang == "pt" [Lista de Figuras] else [List of Figures],
+    title: if lang == "zh" [插圖目錄] else if lang == "pt" [Lista de Figuras] else [List of Figures],
   )
 }
 
-#let outline-table(lang: "en") = {
+/// List of Tables
+///
+/// -> content
+#let outline-table(
+  /// Language of the thesis
+  ///
+  /// -> "en" | "zh" | "pt"
+  lang: "en",
+) = {
   // Restore default formatting for titles
   show outline.entry: it => link(
     it.element.location(),
@@ -20,11 +36,19 @@
   show outline: set heading(outlined: true)
   outline(
     target: figure.where(kind: table),
-    title: if lang == "zh" [表格目录] else if lang == "pt" [Lista de Tabelas] else [List of Tables],
+    title: if lang == "zh" [表格目錄] else if lang == "pt" [Lista de Tabelas] else [List of Tables],
   )
 }
 
-#let outline-table-image(lang: "en") = {
+/// List of Tables and Figures
+///
+/// -> content
+#let outline-table-image(
+  /// Language of the thesis
+  ///
+  /// -> "en" | "zh" | "pt"
+  lang: "en",
+) = {
   // Restore default formatting for titles
   show outline.entry: it => link(
     it.element.location(),
@@ -33,7 +57,8 @@
   show outline: set heading(outlined: true)
   outline(
     target: figure.where(kind: image),
-    title: if lang == "zh" [插图目录] else if lang == "pt" [Lista de Tabelas e Figuras] else [List of Tables and Figures],
+    title: if lang == "zh" [圖表目錄] else if lang
+      == "pt" [Lista de Tabelas e Figuras] else [List of Tables and Figures],
   )
   outline(
     target: figure.where(kind: table),
