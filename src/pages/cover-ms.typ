@@ -40,11 +40,12 @@
         0.66em + 39pt,
         0.15em + 21pt,
         0.15em + 28pt,
-        1.29em + 140pt,
+        1fr,
         0.66em + 142pt,
         0.66em + 20pt,
         0em,
         0.15em,
+        0em,
       ),
       align: center + horizon,
 
@@ -63,6 +64,7 @@
       // Academic Unit
       strong(info.academic-unit-en),
       [*University of Macau*],
+      v(39pt),
     ),
   )
 
@@ -83,7 +85,7 @@
       0.15em + 28pt,
       0.15em,
       0.15em + 28pt,
-      0.66em + 28pt,
+      1fr,
       0em,
     ),
     align: center + top,
@@ -106,7 +108,7 @@
     // Expected Degree Awarding Year
     [#date.year()],
     // Approval Signature
-    [#v(84pt)
+    [
       #grid(
         columns: 3,
         rows: 7,
@@ -138,6 +140,7 @@
         )[Date#uline()],
       )
     ],
+    v(63pt)
   )
 
   pagebreak()
