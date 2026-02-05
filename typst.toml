@@ -8,7 +8,12 @@ description = "Thesis for University of Macau. 澳门大学学位论文。"
 repository = "https://github.com/ShabbyGayBar/modern-um-thesis"
 keywords = ["University of Macau", "thesis"]
 categories = ["thesis"]
-exclude = ["documentation"]
+exclude = [
+  "docs",
+  ".gitattribute",
+  ".gitignore",
+  "thumbnail.png",
+]
 
 [template]
 path = "template"
