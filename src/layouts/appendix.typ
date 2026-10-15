@@ -34,6 +34,7 @@
   set heading(numbering: numbly(
     pattern-heading-first-level(lang: lang, supplement: [Appendix]) + if doctype == "master" { ":" },
     "{1:A}.{2}.",
+    default: "A.1.",
   ))
   // Set appendix supplement for identification in doc.typ
   show heading.where(level: 1): set heading(supplement: [Appendix])
