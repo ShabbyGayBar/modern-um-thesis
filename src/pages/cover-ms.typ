@@ -63,7 +63,7 @@
       // Degree Title
       strong(info.degree-en),
       // Year
-      [#date.year()],
+      strong[#date.year()],
       // University Logo
       image("../assets/UM-Logo_Monotone.png", height: 77pt),
       // Academic Unit
