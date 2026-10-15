@@ -17,9 +17,18 @@
   ///
   /// -> "en" | "zh" | "pt"
   lang: "en",
+  /// Enable double-sided printing; master's main matter starts on a right-hand page.
+  ///
+  /// -> bool
+  double-sided: true,
   /// -> content
   body,
 ) = {
+  if doctype == "master" and double-sided {
+    // Keep any inserted blank page free of front-matter folios.
+    set page(header: none, footer: none, numbering: none)
+    pagebreak(weak: true, to: "odd")
+  }
   set page(numbering: "1")
   counter(page).update(1)
   counter(heading).update(0)

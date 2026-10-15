@@ -115,6 +115,7 @@
         ..args,
         doctype: doctype,
         lang: lang,
+        double-sided: double-sided,
       )
     },
     appendix: (..args) => {
