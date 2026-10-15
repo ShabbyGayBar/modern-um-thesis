@@ -11,6 +11,8 @@
 #let cover-ms(
   /// Date of submission
   ///
+  /// Its year controls all printed years, including the expected degree-awarding year.
+  ///
   /// -> datetime
   date: datetime.today(),
   /// Enable double-sided printing
@@ -61,7 +63,7 @@
       // Degree Title
       strong(info.degree-en),
       // Year
-      [#datetime.today().year()],
+      [#date.year()],
       // University Logo
       image("../assets/UM-Logo_Monotone.png", height: 77pt),
       // Academic Unit

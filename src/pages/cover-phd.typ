@@ -9,6 +9,8 @@
 #let cover-phd(
   /// Date of submission
   ///
+  /// Its year controls all printed years, including the expected degree-awarding year.
+  ///
   /// -> datetime
   date: datetime.today(),
   /// Language of the thesis
@@ -166,7 +168,7 @@
       [#info.degree-pt\ #info.degree-en]
     },
     // Expected Degree Awarding Year
-    [#datetime.today().year()],
+    [#date.year()],
     // Academic Unit
     if lang == "en" {
       [#info.academic-unit-en\ \ University of Macau\ \ ]

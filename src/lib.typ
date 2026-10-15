@@ -24,6 +24,8 @@
   doctype: "doctor",
   /// Date of submission
   ///
+  /// Its year controls all printed years, including the expected degree-awarding year.
+  ///
   /// -> datetime
   date: datetime.today(),
   /// Language of the thesis
