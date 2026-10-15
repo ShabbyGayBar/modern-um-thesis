@@ -98,6 +98,7 @@
         ..args,
         date: date,
         doctype: doctype,
+        lang: lang,
         double-sided: double-sided,
         print: print,
         info: info + args.named().at("info", default: (:)),
