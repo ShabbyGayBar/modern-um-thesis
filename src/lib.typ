@@ -74,6 +74,12 @@
   ///
   /// Apart from all *required* entries above, if you choose a language other than "en", you must also provide translations for all *required* entries in that language.
   ///
+  /// On the doctoral Author's Right page, the final word of `author-en`
+  /// (or `author-pt` for Portuguese) is treated as the surname and uppercased.
+  /// All preceding words are preserved as given names: `Tai Man Chan`
+  /// becomes `CHAN, Tai Man`. Only the final word is treated as the surname,
+  /// including for compound surnames.
+  ///
   /// -> dictionary
   info: (:),
 ) = {

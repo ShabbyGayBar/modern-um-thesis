@@ -21,6 +21,9 @@
   double-sided: true,
   /// Thesis information
   ///
+  /// For the Author's Right page, the last word of `author-en` (or `author-pt`
+  /// when `lang` is "pt") is the surname; all preceding words are given names.
+  ///
   /// -> dictionary
   info: (:),
 ) = {

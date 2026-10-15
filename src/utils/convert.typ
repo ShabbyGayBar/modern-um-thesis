@@ -17,19 +17,27 @@
   }
 }
 
-/// Converts a string to camel case format.
+/// Converts a name string/content to format SURNAME, Given Names.
+///
+/// The final whitespace-separated word is the surname. All preceding words
+/// are given names, with their spelling and capitalization preserved.
+/// Surrounding and repeated whitespace is removed. A single-word name is
+/// uppercased without a comma; an empty name produces an empty string.
 ///
 /// -> str
-#let camel-case(body) = {
-  to-str(body).split(" ").map(word => upper(word.at(0)) + lower(word.slice(1))).join("")
-}
-
-/// Converts a name string/content to format SURNAME, Given Name
-/// 
-/// -> str
 #let format-name(body) = {
-  let name_parts = to-str(body).split(" ")
-  let surname = name_parts.first()
-  let given_name = name_parts.last()
-  upper(surname) + ", " + camel-case(given_name)
+  let name = to-str(body)
+  if name == none {
+    return ""
+  }
+  let name-parts = name.split(regex("\\s+")).filter(part => part != "")
+  if name-parts.len() == 0 {
+    return ""
+  }
+  let surname = upper(name-parts.pop())
+  if name-parts.len() == 0 {
+    surname
+  } else {
+    surname + ", " + name-parts.join(" ")
+  }
 }
