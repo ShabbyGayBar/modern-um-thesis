@@ -33,9 +33,24 @@
     depth: 4,
     indent: 3em,
   ) if doctype == "master"
-  // Uppercase first level headings for master thesis
+  // Uppercase first level headings for master thesis, preserving page number case
   show outline.entry.where(level: 1): it => if doctype == "master" {
-    upper(it)
+    let prefix = it.prefix()
+    let inner = {
+      upper(it.body())
+      if it.fill == none {
+        h(1fr)
+      } else {
+        [ #box(width: 1fr, it.fill) ]
+      }
+      // Keep the page number from wrapping onto a line of its own.
+      "\u{2060}"
+      it.page()
+    }
+    link(
+      it.element.location(),
+      it.indented(if prefix != none { upper(prefix) }, inner),
+    )
   } else {
     it
   }
