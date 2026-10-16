@@ -61,7 +61,8 @@
     }
   })
   set text(
-    font: ("Times New Roman", "Pmingliu"),
+    // Some Typst versions discover PMingI.U under its Chinese family name.
+    font: ("Times New Roman", "TeX Gyre Termes", "PMingLiU", "PMingI.U", "新一細明體"),
     size: 12pt,
     lang: lang,
     top-edge: 1em,

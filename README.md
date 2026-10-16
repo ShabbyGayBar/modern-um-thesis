@@ -47,6 +47,23 @@ typst init @preview/modern-um-thesis:0.1.1 my-thesis
 
 This will create a new Typst project with the `modern-um-thesis` template set up under the directory `my-thesis`.
 
+### Fonts
+
+The template tries fonts in this order: **Times New Roman → TeX Gyre Termes → PMingLiU → PMingI.U**. Times New Roman remains the preferred Latin font, and PMingLiU remains the preferred Chinese font. If either is unavailable or lacks a character, Typst tries the next font in the list. The fallback list also includes PMingI.U's Chinese family name, **新一細明體**, for Typst versions that discover it under that name.
+
+The open-source alternatives are:
+
+- [TeX Gyre Termes](https://ctan.org/pkg/tex-gyre-termes), a Times-style Latin font. Download the regular, bold, italic, and bold italic OpenType (`.otf`) files.
+- [PMingI.U (新一細明體)](https://github.com/ichitenfont/I.Ming), the I.Ming variant with line height matching Windows MingLiU. Download `PMingI.U-8.10.ttf` from the project's `8.10` directory.
+
+Font files are not bundled with the template. For local use, install them through your operating system's font manager, or place them in a `fonts` directory and compile with:
+
+```bash
+typst compile --font-path ./fonts main.typ
+```
+
+Run `typst fonts --font-path ./fonts` to check that Typst discovers the family names `TeX Gyre Termes` and `PMingI.U` (or `新一細明體`). In the Typst web app, upload the `.otf` and `.ttf` files into your project; Typst discovers them automatically. No template configuration is needed. Font substitutions may change line wrapping and pagination.
+
 ---
 
 ## Feedback & Contributions
